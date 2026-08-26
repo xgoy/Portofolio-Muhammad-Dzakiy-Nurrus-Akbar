@@ -1,0 +1,3351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DZAKIY - Creative Technologist</title>
+  <meta name="description" content="Portfolio with retro craft desk aesthetic" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'desk': '#2563EB',
+            'paper': '#FFFEF7',
+            'yellow': '#FCD34D',
+            'red': '#EF4444',
+            'ink': '#1F2937',
+            'pink': '#FF8FA3',
+            'green': '#86EFAC',
+            'cyan': '#67E8F9',
+          },
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            sans: ['"Silkscreen"', 'monospace'],
+            body: ['"Poppins"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #2563EB;
+      font-family: 'Poppins', sans-serif;
+      color: #1F2937;
+      overflow-x: hidden;
+    }
+
+    /* Enhanced Hand-Drawn Blueprint Sketch Background */
+    .bg-mat {
+      background-color: #1E4ED8;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.4) 0%, transparent 75%),
+        radial-gradient(circle at 80% 80%, rgba(29, 78, 216, 0.6) 0%, transparent 65%),
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 12px);
+      background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px, 100% 100%, 100% 100%;
+      position: relative;
+    }
+
+    /* Enhanced Authentic Corkboard Texture (Subtle warm ambient vignette) */
+    .bg-cork {
+      background-color: #92400E;
+      background-image: 
+        /* Subtle soft warm vignette */
+        radial-gradient(ellipse at 50% 45%, transparent 65%, rgba(69, 26, 3, 0.22) 100%),
+        /* Multi-toned cork granules & organic speckles */
+        radial-gradient(circle at 12% 18%, rgba(254, 240, 138, 0.35) 1px, transparent 1.5px),
+        radial-gradient(circle at 38% 62%, rgba(120, 53, 15, 0.4) 1.5px, transparent 2px),
+        radial-gradient(circle at 72% 28%, rgba(217, 119, 6, 0.35) 1.5px, transparent 2px),
+        radial-gradient(circle at 88% 78%, rgba(120, 53, 15, 0.45) 2px, transparent 2.5px),
+        radial-gradient(circle at 50% 50%, rgba(253, 224, 71, 0.25) 1px, transparent 1.5px),
+        radial-gradient(circle at 22% 82%, rgba(146, 64, 14, 0.4) 1.5px, transparent 2px),
+        radial-gradient(circle at 60% 88%, rgba(254, 240, 138, 0.25) 1px, transparent 1.5px),
+        /* Organic cork wood-fiber cross-hatching */
+        repeating-linear-gradient(28deg, rgba(120, 53, 15, 0.1) 0px, rgba(120, 53, 15, 0.1) 1px, transparent 1px, transparent 6px),
+        repeating-linear-gradient(-62deg, rgba(254, 240, 138, 0.08) 0px, rgba(254, 240, 138, 0.08) 1px, transparent 1px, transparent 8px);
+      background-size: 100% 100%, 32px 32px, 24px 24px, 28px 28px, 36px 36px, 20px 20px, 40px 40px, 26px 26px, 100% 100%, 100% 100%;
+      box-shadow: inset 0 0 35px rgba(69, 26, 3, 0.25);
+      position: relative;
+    }
+
+    .bg-cork::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(rgba(120, 53, 15, 0.15) 15%, transparent 16%),
+        radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 16%);
+      background-size: 14px 14px;
+      background-position: 0 0, 7px 7px;
+      opacity: 0.8;
+    }
+
+    /* Paper card style */
+    .paper-card {
+      background: #FFFEF7;
+      border: 3px solid #1F2937;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    /* Torn edges */
+    .torn {
+      position: relative;
+    }
+    
+    .torn::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(135deg, #FFFEF7 25%, transparent 25%) -5px 0,
+                  linear-gradient(225deg, #FFFEF7 25%, transparent 25%) -5px 0,
+                  linear-gradient(315deg, #FFFEF7 25%, transparent 25%),
+                  linear-gradient(45deg, #FFFEF7 25%, transparent 25%);
+      background-size: 10px 10px;
+      background-color: transparent;
+    }
+
+    /* Washi tape */
+    .tape {
+      position: absolute;
+      height: 22px;
+      opacity: 0.85;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .tape-yellow {
+      background: repeating-linear-gradient(
+        45deg,
+        #FCD34D,
+        #FCD34D 8px,
+        #FEF3C7 8px,
+        #FEF3C7 16px
+      );
+    }
+
+    .tape-pink {
+      background: #FF8FA3;
+      background-image: radial-gradient(circle, white 15%, transparent 15%);
+      background-size: 6px 6px;
+    }
+
+    .tape-cyan {
+      background: #67E8F9;
+    }
+
+    .tape-green {
+      background: #86EFAC;
+    }
+
+    /* Pushpin */
+    .pin {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      z-index: 20;
+    }
+
+    .pin::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #1F2937;
+      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.25), 1px 2px 3px rgba(0,0,0,0.2);
+    }
+
+    .pin-red::before { background: #EF4444; }
+    .pin-yellow::before { background: #FCD34D; }
+    .pin-blue::before { background: #3B82F6; }
+    .pin-green::before { background: #10B981; }
+    .pin-pink::before { background: #EC4899; }
+    .pin-cyan::before { background: #06B6D4; }
+
+    /* Button effects */
+    .btn {
+      transition: all 0.15s ease;
+      box-shadow: 3px 3px 0 #1F2937;
+      border: 2px solid #1F2937;
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #1F2937;
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #1F2937;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hover lift */
+    .lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .lift:hover {
+      transform: translateY(-5px) rotate(0deg) !important;
+      box-shadow: 8px 12px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Physics-Driven Dangling Polaroid on Blue Tape */
+    .polaroid-wrapper {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .tape-anchor {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 112px;
+      height: 24px;
+      z-index: 30;
+      pointer-events: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .polaroid-card-3d {
+      transform-origin: 50% 4px; /* Anchored exactly under the blue tape */
+      position: relative;
+      cursor: grab;
+      will-change: transform, box-shadow;
+      touch-action: none;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .polaroid-card-3d:active,
+    .polaroid-card-3d.is-dragging {
+      cursor: grabbing !important;
+    }
+
+    .polaroid-glare {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(125deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 65%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 4px;
+      z-index: 15;
+    }
+
+    .polaroid-card-3d:hover .polaroid-glare {
+      opacity: 0.6;
+    }
+
+    /* Project Carousel & Zoom Lightbox Modal (Ultra-Smooth 60/120fps GPU Acceleration) */
+    .project-carousel-track {
+      display: flex;
+      transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+      height: 100%;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      perspective: 1000px;
+      -webkit-perspective: 1000px;
+    }
+
+    .project-carousel-slide {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      overflow: hidden;
+      box-sizing: border-box;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      contain: layout paint;
+    }
+
+    .project-carousel-slide img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      pointer-events: none;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+
+    [id^="project-title-"], [id^="project-desc-"] {
+      transition: opacity 0.22s ease-out;
+      will-change: opacity;
+    }
+
+    /* Horizontal Work Section Gallery Track (Hardware Accelerated Smooth Drag & Scroll) */
+    .work-horizontal-track {
+      display: flex;
+      gap: 1.75rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      cursor: grab;
+      will-change: scroll-position;
+      contain: layout style;
+    }
+
+    .work-horizontal-track::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+      width: 0;
+      height: 0;
+    }
+
+    .work-horizontal-track.is-dragging-track {
+      cursor: grabbing;
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+    }
+
+    .work-card-item {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .work-card-item {
+        flex: 0 0 380px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .work-card-item {
+        flex: 0 0 400px;
+      }
+    }
+
+    .lightbox-modal {
+      display: flex !important;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background-color: rgba(17, 24, 39, 0.94);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+    }
+
+    .lightbox-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .modal-content-box {
+      transform: scale(0.9) translateY(14px);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    .lightbox-modal.is-open .modal-content-box {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    #modal-img {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+
+    #project-title-1,
+    #project-desc-1 {
+      transition: opacity 0.25s ease;
+    }
+
+    /* Critical Header & Navbar Styles (Eliminates delay & layout shift on refresh) */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(29, 78, 216, 0.95);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #1E3A8A;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-desktop {
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 0.375rem 0.85rem;
+      font-size: 0.75rem;
+      font-family: "Silkscreen", "Courier New", monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 2px solid #1F2937;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn-home { background-color: #FFFEF7; color: #1F2937; }
+    .nav-btn-about { background-color: #FFFFFF; color: #1F2937; }
+    .nav-btn-work { background-color: #FCD34D; color: #1F2937; }
+    .nav-btn-skills { background-color: #FFFFFF; color: #1F2937; }
+    .nav-btn-contact { background-color: #EF4444; color: #FFFFFF; }
+
+    /* White & Cream buttons turn Yellow on hover */
+    .nav-btn-home:hover,
+    .nav-btn-about:hover,
+    .nav-btn-skills:hover {
+      background-color: #FCD34D !important;
+      color: #1F2937 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 0 #1F2937;
+    }
+
+    /* Yellow and Red buttons turn White on hover */
+    .nav-btn-work:hover {
+      background-color: #FFFFFF !important;
+      color: #1F2937 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 0 #1F2937;
+    }
+
+    .nav-btn-contact:hover {
+      background-color: #FFFFFF !important;
+      color: #1F2937 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 0 #1F2937;
+    }
+
+    /* Aesthetic Retro DZAKIY.EXE Brand Badge */
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background-color: #FFFEF7;
+      padding: 0.35rem 0.75rem;
+      border: 2.5px solid #1F2937;
+      border-radius: 6px;
+      box-shadow: 3px 3px 0 #1F2937;
+      text-decoration: none;
+      transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+    }
+
+    .brand-badge:hover {
+      transform: translate(-2px, -2px) rotate(-1deg);
+      box-shadow: 5px 5px 0 #1F2937;
+      background-color: #FFFDF0;
+    }
+
+    .brand-badge:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #1F2937;
+    }
+
+    .brand-terminal-dot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 8px;
+      height: 8px;
+    }
+
+    .brand-name {
+      font-family: "Press Start 2P", monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1F2937;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-tag {
+      font-family: "Silkscreen", monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background-color: #EF4444;
+      color: #FFFFFF;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      border: 1.5px solid #1F2937;
+      line-height: 1;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .brand-badge:hover .brand-tag {
+      background-color: #FCD34D;
+      color: #1F2937;
+      text-shadow: none;
+    }
+
+    /* Blinking Green Status Indicator */
+    @keyframes liveBlink {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 8px #22c55e, 0 0 2px #16a34a;
+      }
+      50% {
+        opacity: 0.25;
+        box-shadow: none;
+      }
+    }
+
+    .status-blink-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 9999px;
+      border: 1.5px solid #1F2937;
+      animation: liveBlink 1.2s infinite ease-in-out;
+    }
+
+    #mobile-menu {
+      display: none;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #1E40AF; }
+    ::-webkit-scrollbar-thumb { 
+      background: #FCD34D; 
+      border: 2px solid #1E40AF;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body class="bg-mat">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-blue-700/95 backdrop-blur-sm border-b-2 border-blue-900 shadow-lg">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Upgraded Retro Brand Logo Badge -->
+        <a href="#home" class="brand-badge group" aria-label="Dzakiy Home">
+          <span class="brand-terminal-dot">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-ping absolute"></span>
+            <span class="w-2 h-2 bg-emerald-500 rounded-full relative border border-ink"></span>
+          </span>
+          <span class="brand-name">DZAKIY</span>
+          <span class="brand-tag">.EXE</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="nav-desktop hidden md:flex items-center gap-2">
+          <a href="#home" class="nav-btn nav-btn-home">Home</a>
+          <a href="#about" class="nav-btn nav-btn-about">About</a>
+          <a href="#work" class="nav-btn nav-btn-work">Work</a>
+          <a href="#skills" class="nav-btn nav-btn-skills">Skills</a>
+          <a href="#contact" class="nav-btn nav-btn-contact">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button id="menu-btn" class="md:hidden bg-paper border-2 border-ink p-2 hover:bg-yellow transition-colors" aria-label="Open Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-blue-900/95 backdrop-blur-lg hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="paper-card torn p-6 w-full max-w-sm relative rotate-[-1deg]">
+        <div class="tape tape-yellow w-24 -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]"></div>
+        
+        <div class="flex justify-between items-center mb-6 pb-3 border-b-2 border-dashed border-ink/30">
+          <span class="font-pixel text-xs">MENU</span>
+          <button id="menu-close" class="bg-red-500 text-white p-1 border-2 border-ink" aria-label="Close Menu">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="#home" class="block p-3 bg-white border-2 border-ink font-sans text-sm font-bold hover:bg-yellow transition-colors mobile-link">HOME</a>
+          <a href="#about" class="block p-3 bg-white border-2 border-ink font-sans text-sm font-bold hover:bg-yellow transition-colors mobile-link">ABOUT</a>
+          <a href="#work" class="block p-3 bg-yellow border-2 border-ink font-sans text-sm font-bold hover:bg-white transition-colors mobile-link">WORK</a>
+          <a href="#skills" class="block p-3 bg-white border-2 border-ink font-sans text-sm font-bold hover:bg-yellow transition-colors mobile-link">SKILLS</a>
+          <a href="#contact" class="block p-3 bg-red-500 text-white border-2 border-ink font-sans text-sm font-bold hover:bg-white hover:text-ink transition-colors mobile-link">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-24 pb-16 relative overflow-hidden">
+
+    <!-- ================= 100% PURE MONOCHROME WHITE DENSE VISUAL DOODLE CANVAS ================= -->
+
+    <!-- 1. TOP-LEFT: Laptop with Figma UI, Cat on Monitor, Floppy Disk, Coffee Cup, 3D Cube, Undo/Redo, Sticky Note -->
+    <div class="absolute top-10 left-2 sm:left-4 lg:left-8 pointer-events-none select-none opacity-85 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="290" height="290" viewBox="0 0 290 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cute Cat perched on monitor corner -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(115, 18)">
+          <path d="M 8 18 C 6 12 2 8 0 2 C 8 4 14 10 18 12 C 22 10 28 4 36 2 C 34 8 30 12 28 18 C 30 26 26 34 18 34 C 10 34 6 26 8 18 Z" fill="white" fill-opacity="0.2"/>
+          <circle cx="12" cy="18" r="1.5" fill="white" stroke="none"/>
+          <circle cx="24" cy="18" r="1.5" fill="white" stroke="none"/>
+          <path d="M 16 23 Q 18 25 20 23" />
+          <ellipse cx="12" cy="34" rx="3" ry="2" fill="white"/>
+          <ellipse cx="24" cy="34" rx="3" ry="2" fill="white"/>
+        </g>
+        
+        <!-- Laptop with Figma Design Window -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(20, 50)">
+          <!-- Monitor Screen -->
+          <rect x="0" y="0" width="130" height="88" rx="5" fill="white" fill-opacity="0.08"/>
+          <line x1="0" y1="16" x2="130" y2="16" stroke-width="1.2"/>
+          <circle cx="8" cy="8" r="2" fill="white" stroke="none"/>
+          <circle cx="16" cy="8" r="2" fill="white" stroke="none"/>
+          <circle cx="24" cy="8" r="2" fill="white" stroke="none"/>
+          <!-- Left Layer sidebar -->
+          <line x1="30" y1="16" x2="30" y2="88" stroke-dasharray="2 2" stroke-width="1"/>
+          <rect x="6" y="24" width="18" height="4" rx="1" fill="white" opacity="0.6"/>
+          <rect x="6" y="34" width="14" height="4" rx="1" fill="white" opacity="0.6"/>
+          <rect x="6" y="44" width="16" height="4" rx="1" fill="white" opacity="0.6"/>
+          <!-- Canvas: Vector Pen Tool Bezier Curve with Anchor Handles -->
+          <path d="M 45 65 C 55 30 85 80 105 35" stroke-width="2"/>
+          <circle cx="45" cy="65" r="3" fill="white"/>
+          <circle cx="105" cy="35" r="3" fill="white"/>
+          <line x1="45" y1="65" x2="55" y2="40" stroke-width="1" stroke-dasharray="2 2"/>
+          <circle cx="55" cy="40" r="2" fill="white" stroke="white"/>
+          <line x1="105" y1="35" x2="95" y2="60" stroke-width="1" stroke-dasharray="2 2"/>
+          <circle cx="95" cy="60" r="2" fill="white" stroke="white"/>
+          <!-- Vector Cursor -->
+          <path d="M 75 42 L 82 58 L 78 59 L 75 66 L 72 65 L 75 58 L 68 56 Z" fill="white" stroke="white" stroke-width="1"/>
+          <!-- Laptop Base -->
+          <path d="M -12 88 L 142 88 L 132 98 L -2 98 Z" fill="white" fill-opacity="0.15"/>
+          <rect x="50" y="89" width="30" height="3" rx="1" fill="white"/>
+        </g>
+
+        <!-- Floating Hot Coffee Cup with Steam (Top-Left Accent) -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(180, 20)">
+          <path d="M 6 14 L 8 36 C 8 42 28 42 28 36 L 30 14 Z" fill="white" fill-opacity="0.12"/>
+          <path d="M 29 18 C 36 18 36 30 29 30" stroke-width="1.6"/>
+          <line x1="4" y1="14" x2="32" y2="14" stroke-width="2"/>
+          <!-- Steam curls -->
+          <path d="M 12 10 Q 15 5 12 0 M 18 10 Q 21 5 18 0 M 24 10 Q 27 5 24 0" stroke-width="1.4"/>
+        </g>
+
+        <!-- Retro 3.5\" Floppy Disk Sketch -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(175, 80) rotate(10)">
+          <rect x="0" y="0" width="36" height="38" rx="2" fill="white" fill-opacity="0.1"/>
+          <path d="M 28 0 L 36 8 L 36 38 L 0 38 L 0 0 Z"/>
+          <rect x="6" y="0" width="22" height="14" fill="white" fill-opacity="0.2"/>
+          <circle cx="18" cy="26" r="6"/>
+          <circle cx="18" cy="26" r="2" fill="white"/>
+        </g>
+
+        <!-- Wireframe 3D Isometric Cube -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(235, 125)">
+          <polygon points="16,0 32,8 16,16 0,8" fill="white" fill-opacity="0.15"/>
+          <polygon points="0,8 16,16 16,32 0,24" fill="white" fill-opacity="0.08"/>
+          <polygon points="32,8 16,16 16,32 32,24" fill="white" fill-opacity="0.2"/>
+        </g>
+
+        <!-- Undo / Redo Curved Arrows -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(180, 145)">
+          <path d="M 24 16 C 16 8 8 12 8 20 C 8 28 18 30 24 26" />
+          <path d="M 16 16 L 24 16 L 24 24" />
+          <path d="M 32 32 C 40 40 48 36 48 28 C 48 20 38 18 32 22" />
+          <path d="M 40 32 L 32 32 L 32 24" />
+        </g>
+
+        <!-- Swatch Dots (Pure White) -->
+        <g transform="translate(175, 195)">
+          <circle cx="10" cy="10" r="4.5" fill="white" fill-opacity="0.8" stroke="white" stroke-width="1.5"/>
+          <circle cx="24" cy="10" r="4.5" fill="white" fill-opacity="0.5" stroke="white" stroke-width="1.5"/>
+          <circle cx="38" cy="10" r="4.5" fill="white" fill-opacity="0.2" stroke="white" stroke-width="1.5"/>
+          <circle cx="52" cy="10" r="4.5" fill="none" stroke="white" stroke-width="1.5"/>
+        </g>
+
+        <!-- Paper Airplane Flying (Top Accent) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(25, 160) rotate(-15)">
+          <polygon points="0,0 28,12 0,24 6,12" fill="white" fill-opacity="0.2"/>
+          <line x1="6" y1="12" x2="28" y2="12"/>
+          <!-- Motion trail -->
+          <path d="M -8 16 Q -14 20 -22 18" stroke-dasharray="2 2" stroke-width="1.2"/>
+        </g>
+
+        <!-- Sticky Note: Visual Bulb & Sketch Scribbles -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(85, 185) rotate(-6)">
+          <rect x="0" y="0" width="56" height="52" fill="white" fill-opacity="0.1"/>
+          <path d="M 42 52 L 56 38" />
+          <circle cx="28" cy="18" r="7" fill="white" fill-opacity="0.25"/>
+          <line x1="26" y1="27" x2="30" y2="27"/>
+          <line x1="28" y1="8" x2="28" y2="6"/>
+          <line x1="18" y1="12" x2="20" y2="14"/>
+          <line x1="38" y1="12" x2="36" y2="14"/>
+          <line x1="8" y1="36" x2="48" y2="36" stroke-width="1.2"/>
+          <line x1="8" y1="43" x2="34" y2="43" stroke-width="1.2"/>
+        </g>
+
+        <!-- Sparkles & Swirls -->
+        <path d="M 155 245 L 157 253 L 165 255 L 157 257 L 155 265 L 153 257 L 145 255 L 153 253 Z" fill="white" opacity="0.9"/>
+        <path d="M 235 210 C 237 208 240 210 239 213 C 237 216 233 214 233 211 C 233 207 238 205 241 208" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 35 245 L 36.5 251 L 43 252.5 L 36.5 254 L 35 260 L 33.5 254 L 27 252.5 L 33.5 251 Z" fill="white" opacity="0.8"/>
+      </svg>
+    </div>
+
+    <!-- 2. TOP-CENTER: Light Bulb, Anime Head, Code Vector, Rocket Launch, Cassette Tape, Planet Saturn, Pixel Key & Coin -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none select-none opacity-85 hover:opacity-100 transition-opacity hidden lg:block z-0">
+      <svg width="440" height="95" viewBox="0 0 440 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Floating Cassette Tape (Top-Center Left) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(10, 15) rotate(-6)">
+          <rect x="0" y="0" width="46" height="30" rx="3" fill="white" fill-opacity="0.1"/>
+          <rect x="6" y="4" width="34" height="14" rx="1" fill="white" fill-opacity="0.15"/>
+          <circle cx="15" cy="11" r="3.5" fill="white"/>
+          <circle cx="31" cy="11" r="3.5" fill="white"/>
+          <line x1="8" y1="24" x2="38" y2="24"/>
+        </g>
+
+        <!-- Light Bulb of Ideas with radiating sparks -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(75, 12)">
+          <path d="M 15 26 C 10 22 6 16 6 10 C 6 4 10 0 16 0 C 22 0 26 4 26 10 C 26 16 22 22 17 26 L 17 30 L 15 30 Z" fill="white" fill-opacity="0.15"/>
+          <line x1="14" y1="34" x2="18" y2="34"/>
+          <path d="M 13 14 Q 16 8 19 14" stroke-width="1.2"/>
+          <line x1="16" y1="-5" x2="16" y2="-1" stroke-width="1.5"/>
+          <line x1="2" y1="2" x2="6" y2="5" stroke-width="1.5"/>
+          <line x1="30" y1="2" x2="26" y2="5" stroke-width="1.5"/>
+          <line x1="0" y1="12" x2="4" y2="12" stroke-width="1.5"/>
+          <line x1="32" y1="12" x2="28" y2="12" stroke-width="1.5"/>
+        </g>
+
+        <!-- Mini Anime Head: Thinking Expression with Thought Bubble -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(145, 15)">
+          <circle cx="18" cy="18" r="14" fill="white" fill-opacity="0.1"/>
+          <path d="M 6 14 Q 18 20 30 14" />
+          <path d="M 8 10 L 4 2 M 28 10 L 32 2" />
+          <ellipse cx="13" cy="15" rx="2.5" ry="3" fill="white"/>
+          <ellipse cx="23" cy="15" rx="2.5" ry="3" fill="white"/>
+          <circle cx="13" cy="14" r="1" fill="none" stroke="white"/>
+          <circle cx="23" cy="14" r="1" fill="none" stroke="white"/>
+          <ellipse cx="18" cy="24" rx="2" ry="1.5" />
+          <!-- Thought bubble dots -->
+          <circle cx="38" cy="10" r="2" fill="white" stroke="none"/>
+          <circle cx="44" cy="5" r="3" fill="white" stroke="none"/>
+          <circle cx="54" cy="-2" r="5" fill="white" stroke="none"/>
+          <circle cx="68" cy="-4" r="7" fill="white" fill-opacity="0.2" stroke="white" stroke-width="1.5"/>
+          <circle cx="68" cy="-5" r="3" fill="white"/>
+        </g>
+
+        <!-- Visual Code Bracket Vector Icon -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(255, 20)">
+          <rect x="0" y="0" width="70" height="32" rx="4" fill="white" fill-opacity="0.1"/>
+          <path d="M 18 11 L 11 16 L 18 21 M 32 11 L 39 16 L 32 21 M 27 9 L 23 23" stroke-width="2"/>
+          <path d="M 48 10 C 46 10 45 12 45 15 C 45 16 43 17 42 17 C 43 17 45 18 45 19 C 45 22 46 24 48 24" stroke-width="1.5"/>
+          <path d="M 58 10 C 60 10 61 12 61 15 C 61 16 63 17 64 17 C 63 17 61 18 61 19 C 61 22 60 24 58 24" stroke-width="1.5"/>
+        </g>
+
+        <!-- Mini Planet Saturn with Rings (Top-Center Right) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(345, 18)">
+          <circle cx="16" cy="16" r="10" fill="white" fill-opacity="0.15"/>
+          <ellipse cx="16" cy="16" rx="20" ry="6" transform="rotate(-20 16 16)" fill="none"/>
+        </g>
+
+        <!-- 8-Bit Pixel Key (Top-Center Far Right) -->
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(395, 22) rotate(45)">
+          <rect x="0" y="0" width="8" height="8" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="8" y="3" width="12" height="2"/>
+          <rect x="16" y="5" width="2" height="4"/>
+          <rect x="12" y="5" width="2" height="3"/>
+        </g>
+
+        <!-- Floating Rocket Ship Launching with smoke trail -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(30, 52) rotate(-35)">
+          <path d="M 12 0 C 18 6 18 18 12 24 C 6 18 6 6 12 0 Z" fill="white" fill-opacity="0.2"/>
+          <circle cx="12" cy="10" r="2.5" fill="white"/>
+          <path d="M 6 16 L 0 22 L 6 22 Z M 18 16 L 24 22 L 18 22 Z" fill="white"/>
+          <path d="M 9 26 Q 12 32 8 36 Q 14 42 12 48" stroke-dasharray="2 2" stroke-width="1.2"/>
+        </g>
+
+        <!-- Music Notes & Sparkle Accents -->
+        <g stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(230, 60)">
+          <path d="M 4 12 L 4 2 L 12 0 L 12 10 M 4 5 L 12 3"/>
+          <circle cx="2" cy="12" r="2" fill="white"/>
+          <circle cx="10" cy="10" r="2" fill="white"/>
+        </g>
+        <path d="M 330 65 L 331.5 70 L 336 71.5 L 331.5 73 L 330 78 L 328.5 73 L 324 71.5 L 328.5 70 Z" fill="white" opacity="0.9"/>
+      </svg>
+    </div>
+
+    <!-- 3. TOP-RIGHT: Drawing Tablet, Stylus, Anime Heads, USB Drive, 8-Bit Pixel Art, Compass Arc -->
+    <div class="absolute top-10 right-2 sm:right-4 lg:right-8 pointer-events-none select-none opacity-85 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="290" height="290" viewBox="0 0 290 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Drawing Tablet with Stylus Pen -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(15, 35)">
+          <rect x="0" y="0" width="115" height="80" rx="6" fill="white" fill-opacity="0.08"/>
+          <rect x="28" y="10" width="78" height="60" rx="3" stroke-dasharray="3 2" stroke-width="1.2"/>
+          <circle cx="14" cy="20" r="4" fill="white" fill-opacity="0.3"/>
+          <circle cx="14" cy="34" r="4" fill="white" fill-opacity="0.3"/>
+          <circle cx="14" cy="48" r="4" fill="white" fill-opacity="0.3"/>
+          <circle cx="14" cy="62" r="4" fill="white" fill-opacity="0.3"/>
+          <path d="M 40 45 Q 60 20 80 50 T 95 30" stroke="white" stroke-width="2"/>
+          <g transform="translate(65, 8) rotate(35)">
+            <path d="M 0 0 L 6 0 L 5 45 L 3 52 L 1 45 Z" fill="white"/>
+            <line x1="0" y1="12" x2="6" y2="12" stroke="white" stroke-width="1.5"/>
+            <circle cx="3" cy="25" r="1.5" fill="none" stroke="white"/>
+          </g>
+        </g>
+
+        <!-- USB Flash Drive Sketch (Top-Right Accent) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(225, 15) rotate(25)">
+          <rect x="0" y="0" width="14" height="26" rx="2" fill="white" fill-opacity="0.15"/>
+          <rect x="2" y="-10" width="10" height="10" fill="none"/>
+          <line x1="4" y1="-5" x2="4" y2="-2"/>
+          <line x1="10" y1="-5" x2="10" y2="-2"/>
+          <circle cx="7" cy="20" r="1.5" fill="white"/>
+        </g>
+
+        <!-- Anime Character Head 1: Cute Smile Expression -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(155, 18)">
+          <circle cx="20" cy="20" r="16" fill="white" fill-opacity="0.1"/>
+          <path d="M 6 15 Q 20 22 34 15" />
+          <path d="M 8 10 L 4 3 M 32 10 L 36 3" />
+          <path d="M 12 18 Q 16 13 20 18" stroke-width="2"/>
+          <path d="M 22 18 Q 26 13 30 18" stroke-width="2"/>
+          <line x1="8" y1="22" x2="12" y2="24" stroke="white" stroke-width="1.5"/>
+          <line x1="28" y1="24" x2="32" y2="22" stroke="white" stroke-width="1.5"/>
+          <path d="M 18 25 Q 21 29 24 25" />
+        </g>
+
+        <!-- Anime Character Head 2: Deadpan / Cool Glasses Expression -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(175, 80)">
+          <circle cx="18" cy="18" r="14" fill="white" fill-opacity="0.1"/>
+          <path d="M 6 12 Q 18 18 30 12" />
+          <rect x="8" y="14" width="8" height="6" rx="1"/>
+          <rect x="20" y="14" width="8" height="6" rx="1"/>
+          <line x1="16" y1="17" x2="20" y2="17"/>
+          <line x1="14" y1="25" x2="22" y2="25" stroke-width="1.6"/>
+        </g>
+
+        <!-- Protractor / Geometric Angle Arc -->
+        <g stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(230, 85)">
+          <path d="M 0 30 A 30 30 0 0 1 30 0 L 0 30 Z" fill="white" fill-opacity="0.08"/>
+          <line x1="0" y1="30" x2="10" y2="10" stroke-dasharray="2 2"/>
+        </g>
+
+        <!-- 8-Bit Pixel Art Heart, Pixel Star, Pixel Skull -->
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(150, 155)">
+          <rect x="4" y="0" width="4" height="4"/><rect x="8" y="0" width="4" height="4"/>
+          <rect x="16" y="0" width="4" height="4"/><rect x="20" y="0" width="4" height="4"/>
+          <rect x="0" y="4" width="28" height="4"/>
+          <rect x="0" y="8" width="28" height="4"/>
+          <rect x="4" y="12" width="20" height="4"/>
+          <rect x="8" y="16" width="12" height="4"/>
+          <rect x="12" y="20" width="4" height="4"/>
+        </g>
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(205, 155)">
+          <rect x="8" y="0" width="4" height="4"/>
+          <rect x="8" y="4" width="4" height="4"/>
+          <rect x="0" y="8" width="20" height="4"/>
+          <rect x="4" y="12" width="12" height="4"/>
+          <rect x="4" y="16" width="4" height="4"/><rect x="12" y="16" width="4" height="4"/>
+        </g>
+
+        <!-- Pencil with Eraser Sketch -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(30, 175) rotate(-20)">
+          <rect x="0" y="0" width="60" height="8" rx="1" fill="white" fill-opacity="0.15"/>
+          <rect x="0" y="0" width="10" height="8" rx="1" fill="white" fill-opacity="0.4"/>
+          <path d="M 60 0 L 72 4 L 60 8 Z" fill="white"/>
+          <path d="M 68 3 L 72 4 L 68 5 Z" fill="white" opacity="0.3"/>
+        </g>
+
+        <!-- Radiating Star & Constellation Sparkles -->
+        <path d="M 125 215 L 127 223 L 135 225 L 127 227 L 125 235 L 123 227 L 115 225 L 123 223 Z" fill="white" opacity="0.9"/>
+        <path d="M 185 220 L 186.5 226 L 193 227.5 L 186.5 229 L 185 235 L 183.5 229 L 177 227.5 L 183.5 226 Z" fill="white" opacity="0.8"/>
+        <path d="M 235 195 C 237 193 240 195 239 198 C 237 201 233 199 233 196 C 233 192 238 190 241 193" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- 4. MIDDLE-LEFT: Game Controller, Puzzle Piece Code, Visual Sticky Notes, Ladder -->
+    <div class="absolute top-[48%] -translate-y-1/2 left-2 sm:left-4 lg:left-8 pointer-events-none select-none opacity-80 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="210" height="250" viewBox="0 0 210 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Retro Game Controller -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(15, 15)">
+          <path d="M 15 20 C 5 20 0 35 0 55 C 0 75 15 80 25 70 L 35 55 L 65 55 L 75 70 C 85 80 100 75 100 55 C 100 35 95 20 85 20 Z" fill="white" fill-opacity="0.1"/>
+          <rect x="18" y="32" width="6" height="18" rx="1" fill="white"/>
+          <rect x="12" y="38" width="18" height="6" rx="1" fill="white"/>
+          <circle cx="78" cy="35" r="3" fill="white"/>
+          <circle cx="88" cy="43" r="3" fill="white"/>
+          <circle cx="68" cy="43" r="3" fill="white"/>
+          <circle cx="78" cy="51" r="3" fill="white"/>
+          <circle cx="36" cy="46" r="5"/>
+          <circle cx="64" cy="46" r="5"/>
+        </g>
+
+        <!-- Puzzle Piece transitioning into Code Vector Bracket -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(25, 115)">
+          <path d="M 0 0 H 20 C 20 5 25 8 30 8 C 35 8 40 5 40 0 H 60 V 20 C 55 20 52 25 52 30 C 52 35 55 40 60 40 V 60 H 40 C 40 55 35 52 30 52 C 25 52 20 55 20 60 H 0 V 40 C 5 40 8 35 8 30 C 8 25 5 20 0 20 Z" fill="white" fill-opacity="0.1"/>
+          <path d="M 22 22 L 16 30 L 22 38 M 38 22 L 44 30 L 38 38 M 32 18 L 28 42" stroke-width="2"/>
+        </g>
+
+        <!-- Visual Sticky Notes (Lightning Bolt & Checkmark - Pure White) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(105, 130) rotate(8)">
+          <rect x="0" y="0" width="46" height="42" fill="white" fill-opacity="0.1"/>
+          <path d="M 24 6 L 16 20 L 24 20 L 20 36 L 32 18 L 24 18 Z" fill="white" fill-opacity="0.3" stroke="white" stroke-width="1.4"/>
+        </g>
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(115, 180) rotate(-6)">
+          <rect x="0" y="0" width="46" height="42" fill="white" fill-opacity="0.1"/>
+          <path d="M 12 22 L 20 30 L 34 12" stroke="white" stroke-width="2.5"/>
+        </g>
+
+        <!-- Mini Ladder Metaphor -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" transform="translate(25, 195)">
+          <line x1="0" y1="0" x2="10" y2="45"/>
+          <line x1="18" y1="0" x2="28" y2="45"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <line x1="5" y1="22" x2="23" y2="22"/>
+          <line x1="7" y1="34" x2="25" y2="34"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 5. MIDDLE-RIGHT: Camera / Video, Clapperboard, Headphones, Abstract Canvas -->
+    <div class="absolute top-[48%] -translate-y-1/2 right-2 sm:right-4 lg:right-8 pointer-events-none select-none opacity-80 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- DSLR / Video Camera Sketch -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(20, 15)">
+          <rect x="0" y="10" width="60" height="40" rx="4" fill="white" fill-opacity="0.08"/>
+          <path d="M 18 10 L 24 2 L 36 2 L 42 10 Z" fill="white" fill-opacity="0.2"/>
+          <circle cx="30" cy="30" r="14"/>
+          <circle cx="30" cy="30" r="8"/>
+          <circle cx="50" cy="20" r="2.5" fill="white" stroke="none"/>
+        </g>
+
+        <!-- Clapperboard with Play Icon & Film Strips -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(100, 15) rotate(12)">
+          <rect x="0" y="16" width="55" height="40" rx="3" fill="white" fill-opacity="0.08"/>
+          <rect x="0" y="0" width="55" height="16" rx="2" fill="white" fill-opacity="0.2"/>
+          <line x1="12" y1="0" x2="6" y2="16"/>
+          <line x1="26" y1="0" x2="20" y2="16"/>
+          <line x1="40" y1="0" x2="34" y2="16"/>
+          <line x1="8" y1="28" x2="47" y2="28" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <path d="M 22 36 L 34 43 L 22 50 Z" fill="white" stroke="white" stroke-width="1.2"/>
+        </g>
+
+        <!-- Focus Headphones with Music Notes -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(25, 85)">
+          <path d="M 6 25 C 6 0 54 0 54 25" stroke-width="2.5"/>
+          <rect x="0" y="20" width="10" height="20" rx="4" fill="white"/>
+          <rect x="50" y="20" width="10" height="20" rx="4" fill="white"/>
+          <path d="M 66 12 L 66 2 M 66 2 L 76 6 L 76 16" stroke-width="1.4"/>
+          <circle cx="64" cy="12" r="2.5" fill="white"/>
+          <circle cx="74" cy="16" r="2.5" fill="white"/>
+        </g>
+
+        <!-- Poster Canvas with Abstract Geometric Art -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(105, 95) rotate(-6)">
+          <rect x="0" y="0" width="60" height="80" rx="3" fill="white" fill-opacity="0.08"/>
+          <circle cx="30" cy="25" r="14" fill="white" fill-opacity="0.2"/>
+          <path d="M 8 68 L 25 45 L 40 60 L 52 48 L 52 68 Z" fill="white" fill-opacity="0.2"/>
+          <line x1="8" y1="68" x2="52" y2="68" stroke-width="1.5"/>
+        </g>
+
+        <path d="M 50 210 L 52 218 L 60 220 L 52 222 L 50 230 L 48 222 L 40 220 L 48 218 Z" fill="white" opacity="0.9"/>
+      </svg>
+    </div>
+
+    <!-- 6. BOTTOM-LEFT (DENSE PURE MONOCHROME): Sketches Stack, Potted Plant, SD Card, Reload Sticky, Clock, Loading Icon -->
+    <div class="absolute bottom-8 sm:bottom-12 left-2 sm:left-4 lg:left-8 pointer-events-none select-none opacity-85 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="290" height="230" viewBox="0 0 290 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stack of Paper Sketches -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(15, 20)">
+          <rect x="0" y="10" width="70" height="80" rx="2" fill="white" fill-opacity="0.08" transform="rotate(-10)"/>
+          <line x1="10" y1="25" x2="50" y2="25" stroke-dasharray="2 2" transform="rotate(-10)"/>
+          <rect x="6" y="6" width="70" height="80" rx="2" fill="white" fill-opacity="0.12" transform="rotate(6)"/>
+          <rect x="12" y="0" width="70" height="80" rx="2" fill="white" fill-opacity="0.16"/>
+          <line x1="22" y1="18" x2="62" y2="18"/>
+          <line x1="22" y1="28" x2="52" y2="28"/>
+          <path d="M 22 55 L 34 68 L 68 38" stroke="white" stroke-width="2.5"/>
+        </g>
+
+        <!-- Potted Desk Cactus / Succulent Plant (Bottom-Left Accent) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(15, 130)">
+          <!-- Pot -->
+          <polygon points="4,24 28,24 24,42 8,42" fill="white" fill-opacity="0.15"/>
+          <line x1="2" y1="24" x2="30" y2="24" stroke-width="2"/>
+          <!-- Cactus stem & arms -->
+          <path d="M 16 4 C 12 4 12 24 16 24 C 20 24 20 4 16 4 Z" fill="white" fill-opacity="0.2"/>
+          <path d="M 12 12 H 8 V 6" stroke-width="1.6"/>
+          <path d="M 20 16 H 24 V 10" stroke-width="1.6"/>
+          <!-- Little spines -->
+          <line x1="14" y1="8" x2="12" y2="7"/><line x1="18" y1="8" x2="20" y2="7"/>
+        </g>
+
+        <!-- SD Memory Card / Microchip (Bottom-Left Accent) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(55, 140) rotate(-12)">
+          <path d="M 4 0 L 24 0 L 24 30 L 0 30 L 0 4 Z" fill="white" fill-opacity="0.1"/>
+          <!-- Gold pins -->
+          <line x1="4" y1="2" x2="4" y2="8" stroke-width="1.5"/>
+          <line x1="8" y1="2" x2="8" y2="8" stroke-width="1.5"/>
+          <line x1="12" y1="2" x2="12" y2="8" stroke-width="1.5"/>
+          <line x1="16" y1="2" x2="16" y2="8" stroke-width="1.5"/>
+          <line x1="20" y1="2" x2="20" y2="8" stroke-width="1.5"/>
+        </g>
+
+        <!-- Sticky Note: Reload / Circular Iteration Arrows -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(115, 25) rotate(-8)">
+          <rect x="0" y="0" width="65" height="48" fill="white" fill-opacity="0.1"/>
+          <path d="M 40 22 A 10 10 0 1 0 32 32" stroke-width="1.8"/>
+          <path d="M 38 16 L 42 22 L 34 24" fill="white"/>
+          <line x1="8" y1="40" x2="55" y2="40" stroke-width="1"/>
+        </g>
+
+        <!-- Mini Deadline Clock -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(115, 90)">
+          <circle cx="20" cy="20" r="16" fill="white" fill-opacity="0.08"/>
+          <line x1="20" y1="20" x2="20" y2="10" stroke-width="2"/>
+          <line x1="20" y1="20" x2="28" y2="20" stroke-width="2"/>
+          <path d="M 8 7 Q 12 4 15 7 M 25 7 Q 28 4 32 7" stroke-width="1.5"/>
+          <line x1="10" y1="34" x2="6" y2="38"/>
+          <line x1="30" y1="34" x2="34" y2="38"/>
+        </g>
+
+        <!-- Circular Loading Progress Spinner & Cursor -->
+        <g stroke="white" stroke-width="2" stroke-linecap="round" transform="translate(200, 75)">
+          <path d="M 16 0 A 16 16 0 1 1 0 16" stroke-dasharray="4 3"/>
+          <circle cx="16" cy="0" r="2" fill="white"/>
+        </g>
+        <g stroke="white" stroke-width="1.5" fill="white" transform="translate(225, 95)">
+          <path d="M 0 0 L 10 24 L 14 18 L 22 22 L 25 18 L 17 14 L 24 10 Z"/>
+        </g>
+
+        <!-- Hand-drawn curved sketch arrow -->
+        <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(145, 155)">
+          <path d="M 0 20 C 25 35 60 25 80 5" />
+          <path d="M 70 0 L 82 4 L 75 14" />
+        </g>
+
+        <!-- Sparkles & Swatches -->
+        <path d="M 245 160 L 247 167 L 254 168.5 L 247 170 L 245 177 L 243 170 L 236 168.5 L 243 167 Z" fill="white" opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- 7. BOTTOM-RIGHT (DENSE PURE MONOCHROME): Spider on Web, Hypnotic Swirl Star, Terminal Prompt, Drawing Compass, Paper Plane -->
+    <div class="absolute bottom-8 sm:bottom-12 right-2 sm:right-4 lg:right-8 pointer-events-none select-none opacity-85 hover:opacity-100 transition-opacity hidden md:block z-0">
+      <svg width="290" height="230" viewBox="0 0 290 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Spiderweb Corner & Clean Hand-Drawn Spider (Laba-laba) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(15, 10)">
+          <line x1="80" y1="0" x2="10" y2="80" stroke-width="1.8"/>
+          <line x1="80" y1="35" x2="25" y2="80"/>
+          <line x1="80" y1="0" x2="50" y2="80"/>
+          <path d="M 60 15 Q 50 30 35 45" />
+          <path d="M 72 8 Q 60 30 45 60" />
+          <line x1="40" y1="40" x2="40" y2="90" stroke-dasharray="2 2" stroke-width="1.2"/>
+          
+          <!-- Detailed Hand-Drawn Spider (Laba-Laba) -->
+          <g transform="translate(26, 90)">
+            <ellipse cx="14" cy="8" rx="4" ry="3" fill="white"/>
+            <ellipse cx="14" cy="18" rx="7" ry="9" fill="white" stroke="white" stroke-width="1.5"/>
+            <circle cx="12" cy="7" r="0.8" fill="none" stroke="white"/>
+            <circle cx="16" cy="7" r="0.8" fill="none" stroke="white"/>
+            <path d="M 10 10 Q 0 4 -4 10 Q -8 16 -12 24" stroke-width="1.6"/>
+            <path d="M 9 14 Q 0 12 -5 18 Q -9 24 -11 32" stroke-width="1.6"/>
+            <path d="M 10 18 Q 2 20 -2 28 Q -5 34 -6 42" stroke-width="1.6"/>
+            <path d="M 11 22 Q 4 28 2 36 Q 1 42 0 48" stroke-width="1.6"/>
+            <path d="M 18 10 Q 28 4 32 10 Q 36 16 40 24" stroke-width="1.6"/>
+            <path d="M 19 14 Q 28 12 33 18 Q 37 24 39 32" stroke-width="1.6"/>
+            <path d="M 18 18 Q 26 20 30 28 Q 33 34 34 42" stroke-width="1.6"/>
+            <path d="M 17 22 Q 24 28 26 36 Q 27 42 28 48" stroke-width="1.6"/>
+          </g>
+        </g>
+
+        <!-- Big Hypnotic Radiating Swirl Star -->
+        <g stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(155, 18)">
+          <path d="M 35 35 L 40 10 L 45 35 L 70 35 L 50 50 L 58 75 L 35 60 L 12 75 L 20 50 L 0 35 L 25 35 Z" fill="white" fill-opacity="0.08"/>
+          <circle cx="35" cy="42" r="8" stroke-width="1.5"/>
+          <circle cx="35" cy="42" r="3" fill="white"/>
+        </g>
+
+        <!-- Drawing Compass / Divider Tool (Bottom-Right Accent) -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(235, 30) rotate(15)">
+          <circle cx="8" cy="4" r="3" fill="white"/>
+          <line x1="8" y1="7" x2="0" y2="40" stroke-width="1.8"/>
+          <line x1="8" y1="7" x2="16" y2="40" stroke-width="1.8"/>
+          <path d="M 2 24 Q 8 26 14 24" stroke-width="1.2"/>
+        </g>
+
+        <!-- Visual Terminal Window Prompt -->
+        <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(130, 115)">
+          <rect x="0" y="0" width="130" height="28" rx="4" fill="white" fill-opacity="0.08"/>
+          <circle cx="8" cy="8" r="1.5" fill="white" stroke="none"/>
+          <circle cx="14" cy="8" r="1.5" fill="white" stroke="none"/>
+          <path d="M 10 18 L 16 21 L 10 24" stroke-width="1.8"/>
+          <line x1="20" y1="24" x2="28" y2="24" stroke-width="2"/>
+          <line x1="36" y1="21" x2="80" y2="21" stroke-dasharray="3 2" stroke-width="1.5"/>
+          <path d="M 90 16 Q 96 14 102 18 T 114 16" stroke-width="1.4"/>
+        </g>
+
+        <!-- Paper Airplane Gliding (Bottom-Right Accent) -->
+        <g stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(180, 160) rotate(-135)">
+          <polygon points="0,0 24,10 0,20 5,10" fill="white" fill-opacity="0.2"/>
+          <line x1="5" y1="10" x2="24" y2="10"/>
+        </g>
+
+        <!-- Sparkles, Asterisks, & Swirls -->
+        <path d="M 140 180 L 142 188 L 150 190 L 142 192 L 140 200 L 138 192 L 130 190 L 138 188 Z" fill="white" opacity="0.9"/>
+        <path d="M 235 170 L 237 177 L 244 178.5 L 237 180 L 235 187 L 233 180 L 226 178.5 L 233 177 Z" fill="white" opacity="0.8"/>
+        <path d="M 115 175 C 117 173 120 175 119 178 C 117 181 113 179 113 176 C 113 172 118 170 121 173" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- 8. BOTTOM-CENTER (EXPANDED DENSE ROW): 8-Bit Pixel Sword, Shield, Coin, Potion, Gem, Stars -->
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none select-none opacity-75 hover:opacity-100 transition-opacity hidden lg:block z-0">
+      <svg width="460" height="60" viewBox="0 0 460 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 8-Bit Pixel Game Shield -->
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(25, 16)">
+          <rect x="0" y="0" width="18" height="12"/>
+          <rect x="2" y="12" width="14" height="6"/>
+          <rect x="6" y="18" width="6" height="4"/>
+          <rect x="6" y="4" width="6" height="8" fill="none" stroke="white" stroke-width="1"/>
+        </g>
+        <!-- 8-Bit Pixel Sword -->
+        <g fill="white" transform="translate(85, 18) rotate(-45)">
+          <rect x="0" y="0" width="3" height="18"/><rect x="3" y="0" width="3" height="15"/>
+          <rect x="-4" y="15" width="14" height="3" fill="white"/>
+          <rect x="1" y="18" width="4" height="6" fill="white" opacity="0.6"/>
+        </g>
+        <!-- Sparkle 1 -->
+        <path d="M 140 28 L 142 35 L 149 36.5 L 142 38 L 140 45 L 138 38 L 131 36.5 L 138 35 Z" fill="white" opacity="0.85"/>
+        <!-- 8-Bit Pixel Coin -->
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(185, 20)">
+          <rect x="4" y="0" width="8" height="16"/>
+          <rect x="0" y="4" width="16" height="8"/>
+          <rect x="6" y="4" width="4" height="8" fill="none" stroke="white"/>
+        </g>
+        <!-- 8-Bit Pixel Diamond Gem -->
+        <g fill="white" stroke="white" stroke-width="0.8" transform="translate(230, 20)">
+          <rect x="6" y="0" width="8" height="3"/>
+          <rect x="3" y="3" width="14" height="4"/>
+          <rect x="0" y="7" width="20" height="4"/>
+          <rect x="4" y="11" width="12" height="4"/>
+          <rect x="8" y="15" width="4" height="4"/>
+        </g>
+        <!-- Sparkle 2 -->
+        <path d="M 295 28 L 297 35 L 304 36.5 L 297 38 L 295 45 L 293 38 L 286 36.5 L 293 35 Z" fill="white" opacity="0.85"/>
+        <!-- 8-Bit Pixel Potion -->
+        <g fill="white" transform="translate(345, 22)">
+          <rect x="4" y="0" width="4" height="2"/>
+          <rect x="3" y="2" width="6" height="2"/>
+          <rect x="1" y="4" width="10" height="10" fill="white" opacity="0.6"/>
+        </g>
+        <!-- Mini Sparkle Star -->
+        <g stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(400, 20)">
+          <path d="M 10 10 L 12 2 L 14 10 L 22 10 L 16 14 L 18 22 L 12 18 L 6 22 L 8 14 L 2 10 Z" fill="white" fill-opacity="0.3"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- ================= END 100% PURE MONOCHROME WHITE DENSE VISUAL DOODLE CANVAS ================= -->
+
+    <!-- Main hero card -->
+    <div class="container mx-auto max-w-5xl reveal relative z-10">
+      <div class="paper-card torn p-8 sm:p-12 lg:p-16 relative">
+        
+        <!-- Decorations -->
+        <div class="tape tape-yellow w-32 -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]"></div>
+        <div class="pin pin-red -top-1 left-6"></div>
+        <div class="pin pin-yellow -top-1 right-6"></div>
+
+        <!-- Status bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b-2 border-dashed border-ink/20">
+          <div class="flex items-center gap-2.5">
+            <span class="relative flex h-3.5 w-3.5 items-center justify-center">
+              <span class="w-full h-full bg-emerald-400 rounded-full animate-ping absolute opacity-75"></span>
+              <span class="status-blink-dot relative"></span>
+            </span>
+            <span class="font-sans text-[10px] sm:text-xs font-bold uppercase tracking-wider text-ink">Available for Work</span>
+          </div>
+          <div class="bg-yellow border-2 border-ink px-2 py-1 rotate-2 shadow-xs">
+            <span class="font-pixel text-[9px]">2026</span>
+          </div>
+        </div>
+
+        <!-- Hero content -->
+        <div class="text-center space-y-6">
+          <div>
+            <p class="font-sans text-xs sm:text-sm text-desk font-bold uppercase tracking-wider mb-3">
+              Hello, I'm
+            </p>
+            <h1 class="font-pixel text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-ink leading-tight mb-4" style="text-shadow: 4px 4px 0 #FCD34D;">
+              DZAKIY
+            </h1>
+            <div class="inline-block bg-ink border-2 border-ink px-6 py-2 rotate-[-1deg]">
+              <p class="font-sans text-sm sm:text-base font-bold text-yellow uppercase">
+                Creative Technologist
+              </p>
+            </div>
+          </div>
+
+          <p class="font-body text-sm sm:text-base text-ink/80 leading-relaxed max-w-2xl mx-auto">
+            A creative dev who loves mixing tech + visual design to build cool digital experiences, from interactive sites and art to sick visual content.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <a href="#work" class="btn bg-yellow px-6 py-3 font-sans text-sm font-bold uppercase inline-flex items-center gap-2 hover:bg-white hover:text-ink transition-all">
+              <i data-lucide="briefcase" class="w-4 h-4"></i>
+              <span>View Work</span>
+            </a>
+            <a href="#about" class="btn bg-white px-6 py-3 font-sans text-sm font-bold uppercase inline-flex items-center gap-2 hover:bg-yellow transition-all">
+              <i data-lucide="user" class="w-4 h-4"></i>
+              <span>About Me</span>
+            </a>
+            <a href="#contact" class="btn bg-red text-white px-6 py-3 font-sans text-sm font-bold uppercase inline-flex items-center gap-2 hover:bg-white hover:text-ink transition-all">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Contact</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section id="about" class="pt-24 pb-20 px-4 bg-cork relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl relative z-10">
+      
+      <!-- Section title -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-block paper-card torn px-8 py-4 relative rotate-[-1deg]">
+          <div class="tape tape-pink w-24 -top-3 left-1/2 -translate-x-1/2 rotate-2"></div>
+          <h2 class="font-pixel text-2xl sm:text-3xl text-ink uppercase">
+            About Me
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        
+        <!-- Polaroid Photo Card with Physics Swing on Blue Tape Anchor -->
+        <div class="lg:col-span-2 reveal flex justify-center">
+          <div id="polaroid-wrapper" class="polaroid-wrapper relative w-full max-w-sm">
+            
+            <!-- Blue Washi Tape firmly anchored to the corkboard at top -->
+            <div class="tape tape-cyan tape-anchor"></div>
+
+            <!-- The Dangling / Spring-Bouncing Polaroid Card -->
+            <div id="polaroid-card" class="polaroid-card-3d paper-card p-4 relative rotate-[-2deg]">
+              
+              <!-- Subtle Holographic Shimmer Glare -->
+              <div class="polaroid-glare"></div>
+
+              <!-- Pushpin on the corner -->
+              <div id="polaroid-pin" class="pin pin-red -top-1 -right-2 z-20 cursor-pointer hover:scale-125 transition-transform" title="Click to kick / swing"></div>
+
+              <!-- Photo frame area -->
+              <div class="aspect-square bg-neutral-900 border-2 border-ink mb-3 relative overflow-hidden rounded-xs pointer-events-none select-none">
+                <img src="profile.jpg" alt="Muhammad Dzakiy Nurrus Akbar" class="w-full h-full object-cover object-top" />
+              </div>
+
+              <!-- Name & Signature -->
+              <div class="text-center pointer-events-none select-none">
+                <p class="font-hand text-2xl font-bold text-ink mb-0.5">DZAKIY</p>
+                <p class="font-sans text-xs text-ink/70 font-bold uppercase tracking-wider">Creative Technologist</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio Card -->
+        <div class="lg:col-span-3 reveal">
+          <div class="paper-card torn p-6 sm:p-8 relative">
+            <div class="tape tape-yellow w-28 -top-3 right-8 rotate-1"></div>
+            
+            <!-- Who I Am Header & Bio -->
+            <div class="space-y-4">
+              <h3 class="font-sans text-xl font-bold text-ink uppercase flex items-center gap-2">
+                <span>Who I Am</span>
+                <span class="flex-1 h-0.5 bg-ink"></span>
+              </h3>
+              
+              <div class="space-y-4 text-sm sm:text-base leading-relaxed text-ink/90 font-sans">
+                <p>
+                  My name is <strong class="font-bold text-ink">Muhammad Dzakiy Nurrus Akbar</strong>, I am a freshman at <strong class="font-bold text-ink">IPB University</strong>, majoring in computer science, School of Data Science, Mathematics, and Informatics.
+                </p>
+                <p>
+                  I enjoy playing Brain Teaser games like Sudoku, Chess, etc, and i love exploring new things. I am particularly interested in the creative and social fields.
+                </p>
+                <p>
+                  With great enthusiasm, i aspire to become person who can influence others positively and build meaningful connections with many people.
+                </p>
+              </div>
+            </div>
+
+            <!-- Quick Facts -->
+            <div class="mt-8 pt-6 border-t-2 border-dashed border-ink/20">
+              <h4 class="font-sans text-xs font-bold text-ink uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-desk"></i>
+                <span>Quick Facts</span>
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs">
+                <div class="bg-white/85 border-2 border-ink p-3 rounded shadow-xs rotate-[-0.5deg]">
+                  <span class="text-ink/60 font-bold uppercase block text-[10px] mb-0.5">Date of Birth</span>
+                  <span class="font-bold text-ink text-sm">February 17, 2007</span>
+                </div>
+                <div class="bg-white/85 border-2 border-ink p-3 rounded shadow-xs rotate-[0.5deg]">
+                  <span class="text-ink/60 font-bold uppercase block text-[10px] mb-0.5">Hometown</span>
+                  <span class="font-bold text-ink text-sm">Bekasi, Indonesia</span>
+                </div>
+                <div class="bg-white/85 border-2 border-ink p-3 rounded shadow-xs rotate-[0.5deg]">
+                  <span class="text-ink/60 font-bold uppercase block text-[10px] mb-0.5">MBTI Personality</span>
+                  <span class="font-bold text-desk text-sm">INTP</span>
+                </div>
+                <div class="bg-white/85 border-2 border-ink p-3 rounded shadow-xs rotate-[-0.5deg]">
+                  <span class="text-ink/60 font-bold uppercase block text-[10px] mb-0.5">Life Motto</span>
+                  <span class="font-medium italic text-ink text-xs leading-snug">"Not a good person, but striving to be better"</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WORK (Horizontal Scrapbook Gallery)
+       ============================================================ -->
+  <section id="work" class="py-20 px-4 bg-mat relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl">
+      
+      <!-- Section header with horizontal scroll navigation -->
+      <div class="flex items-center justify-between mb-8 reveal">
+        <h2 class="font-pixel text-3xl sm:text-4xl text-white uppercase">
+          Selected <span class="text-yellow">Work</span>
+        </h2>
+
+        <!-- Horizontal Scroll Navigation Buttons -->
+        <div class="flex items-center gap-2">
+          <button id="work-nav-prev" type="button" class="w-10 h-10 bg-yellow hover:bg-white active:scale-95 text-ink border-2 border-ink shadow-md flex items-center justify-center font-bold transition-all cursor-pointer rounded-xs" title="Scroll Left">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button id="work-nav-next" type="button" class="w-10 h-10 bg-yellow hover:bg-white active:scale-95 text-ink border-2 border-ink shadow-md flex items-center justify-center font-bold transition-all cursor-pointer rounded-xs" title="Scroll Right">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Projects Track Container -->
+      <div id="work-horizontal-track" class="work-horizontal-track">
+        
+        <!-- Project 1: Canva Poster Showcase -->
+        <div class="work-card-item reveal">
+          <div class="paper-card p-4 relative rotate-[-1deg] lift flex flex-col justify-between w-full h-full">
+            <div class="tape tape-yellow w-24 -top-3 left-6 rotate-[-3deg]"></div>
+            <div class="pin pin-red -top-1 -right-2"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3 pb-2 border-b-2 border-dashed border-ink/20">
+                <span class="font-pixel text-xs text-red">#01</span>
+                <span class="px-2 py-0.5 bg-yellow border border-ink font-sans text-[10px] font-bold uppercase">Canva Design</span>
+              </div>
+
+              <!-- Fixed Height Auto-sliding Poster Carousel Container (Never Changes Size) -->
+              <div id="project-carousel-1" class="relative w-full h-64 sm:h-72 bg-slate-900 border-2 border-ink mb-3 rounded-xs overflow-hidden shadow-inner group">
+                
+                <!-- Carousel Track (4 Posters) -->
+                <div id="carousel-track-1" class="project-carousel-track h-full">
+                  
+                  <!-- Slide 1: Radioactivity in Everyday Life -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="0">
+                    <img 
+                      src="poster_radioaktif.png" 
+                      alt="Radioactivity in Everyday Life - Canva Poster" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Clean Politics Poster -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="1">
+                    <img 
+                      src="poster_politik.png" 
+                      alt="Clean Politics - Voting Rights Education" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Charity Drive Poster -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="2">
+                    <img 
+                      src="poster_donasi.png" 
+                      alt="Charity Drive - Education for All" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4: Ignite Element Banner -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="3">
+                    <img 
+                      src="banner_chronicle.png" 
+                      alt="Ignite Element - Flashback Chronicle & Identity Banner" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Carousel Controls: Prev / Next Buttons -->
+                <button id="carousel-prev-1" type="button" class="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Previous Slide">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button id="carousel-next-1" type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Next Slide">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Indicators / Page Pill -->
+                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-ink/80 backdrop-blur-xs text-white border border-white/30 px-2 py-0.5 rounded-full font-pixel text-[8px] flex items-center gap-1.5 z-10 pointer-events-none">
+                  <span id="carousel-dot-0" class="w-1.5 h-1.5 rounded-full bg-yellow transition-all"></span>
+                  <span id="carousel-dot-1" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-2" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-counter-1" class="ml-1 text-yellow">1/4</span>
+                </div>
+
+              </div>
+
+              <!-- Stable Fixed Title Height Container -->
+              <div class="h-11 flex items-center mb-2 overflow-hidden">
+                <h3 id="project-title-1" class="font-sans text-base font-bold line-clamp-2 leading-tight">Radioactivity in Everyday Life</h3>
+              </div>
+
+              <!-- Stable Fixed Description Height Container -->
+              <div class="h-12 mb-3 overflow-hidden">
+                <p id="project-desc-1" class="text-xs text-ink/70 leading-snug line-clamp-2">
+                  Educational infographic poster designed on Canva discussing the practical applications and safety principles of radioactivity.
+                </p>
+              </div>
+
+              <!-- Stable Fixed Tags Height Container -->
+              <div class="h-6 mb-3 flex flex-wrap gap-1 items-center overflow-hidden">
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Canva</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Graphic Design</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Infographic</span>
+              </div>
+            </div>
+
+            <!-- Bottom Action Button -->
+            <button id="btn-zoom-open-1" type="button" class="btn w-full bg-ink text-paper py-2 font-sans text-xs font-bold uppercase flex items-center justify-center gap-2 hover:bg-gray-800 text-center cursor-pointer">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-yellow"></i>
+              <span>Zoom & View Poster</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Figma Design (IT Today 2026) -->
+        <div class="work-card-item reveal">
+          <div class="paper-card p-4 relative rotate-1 lift flex flex-col justify-between w-full h-full">
+            <div class="tape tape-pink w-24 -top-3 right-6 rotate-2"></div>
+            <div class="pin pin-yellow -top-1 left-4"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3 pb-2 border-b-2 border-dashed border-ink/20">
+                <span class="font-pixel text-xs text-red">#02</span>
+                <span class="px-2 py-0.5 bg-pink border border-ink font-sans text-[10px] font-bold uppercase">Figma Design</span>
+              </div>
+
+              <!-- Fixed Height Auto-sliding Poster Carousel Container (Project 2) -->
+              <div id="project-carousel-2" class="relative w-full h-64 sm:h-72 bg-slate-900 border-2 border-ink mb-3 rounded-xs overflow-hidden shadow-inner group">
+                
+                <!-- Carousel Track (4 Figma Posters) -->
+                <div id="carousel-track-2" class="project-carousel-track h-full">
+                  
+                  <!-- Slide 1: Competition Registration & Fees -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="0">
+                    <img 
+                      src="ittoday_competition.jpg" 
+                      alt="IT Today 2026 - Competition Registration & Fees" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Open Registration Timeline Event -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="1">
+                    <img 
+                      src="ittoday_event.png" 
+                      alt="IT Today 2026 - Open Registration Event Timeline" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Close Registration Event -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="2">
+                    <img 
+                      src="ittoday_close_reg.png" 
+                      alt="IT Today 2026 - Registration Closing Announcement" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4: Registration Closed for All Competition -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="3">
+                    <img 
+                      src="ittoday_closed_all.png" 
+                      alt="IT Today 2026 - Final Competition Closing" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Carousel Controls: Prev / Next Buttons -->
+                <button id="carousel-prev-2" type="button" class="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Previous Slide">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button id="carousel-next-2" type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Next Slide">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Indicators / Page Pill -->
+                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-ink/80 backdrop-blur-xs text-white border border-white/30 px-2 py-0.5 rounded-full font-pixel text-[8px] flex items-center gap-1.5 z-10 pointer-events-none">
+                  <span id="carousel-dot-2-0" class="w-1.5 h-1.5 rounded-full bg-yellow transition-all"></span>
+                  <span id="carousel-dot-2-1" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-2-2" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-2-3" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-counter-2" class="ml-1 text-yellow">1/4</span>
+                </div>
+
+              </div>
+
+              <!-- Stable Fixed Title Height Container -->
+              <div class="h-11 flex items-center mb-2 overflow-hidden">
+                <h3 id="project-title-2" class="font-sans text-base font-bold line-clamp-2 leading-tight">IT Today 2026 - Event & Competition Visuals</h3>
+              </div>
+
+              <!-- Stable Fixed Description Height Container -->
+              <div class="h-12 mb-3 overflow-hidden">
+                <p id="project-desc-2" class="text-xs text-ink/70 leading-snug line-clamp-2">
+                  Complete visual campaign, registration timeline, and competition posters crafted on Figma for IT Today 2026 IPB University.
+                </p>
+              </div>
+
+              <!-- Stable Fixed Tags Height Container -->
+              <div class="h-6 mb-3 flex flex-wrap gap-1 items-center overflow-hidden">
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Figma</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">UI/UX</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Visual Identity</span>
+              </div>
+            </div>
+
+            <!-- Bottom Action Button -->
+            <button id="btn-zoom-open-2" type="button" class="btn w-full bg-ink text-paper py-2 font-sans text-xs font-bold uppercase flex items-center justify-center gap-2 hover:bg-gray-800 text-center cursor-pointer">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-yellow"></i>
+              <span>Zoom & View Poster</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Character Illustration (Collaborative Works) -->
+        <div class="work-card-item reveal">
+          <div class="paper-card p-4 relative rotate-[-2deg] lift flex flex-col justify-between w-full h-full">
+            <div class="tape tape-cyan w-24 -top-3 left-1/2 -translate-x-1/2"></div>
+            <div class="pin pin-red -top-1 right-4"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3 pb-2 border-b-2 border-dashed border-ink/20">
+                <span class="font-pixel text-xs text-red">#03</span>
+                <span class="px-2 py-0.5 bg-cyan border border-ink font-sans text-[10px] font-bold uppercase">Illustration</span>
+              </div>
+              <!-- Fixed Height Auto-sliding Poster Carousel Container (Project 3) -->
+              <div id="project-carousel-3" class="relative w-full h-64 sm:h-72 bg-slate-900 border-2 border-ink mb-3 rounded-xs overflow-hidden shadow-inner group">
+                
+                <!-- Carousel Track (12 Illustration Artworks) -->
+                <div id="carousel-track-3" class="project-carousel-track h-full">
+                  
+                  <!-- Slide 1: Festival Sains Data Nasional IPB -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="0">
+                    <img 
+                      src="illust_fsdn_ipb.jpg" 
+                      alt="National Data Science Festival - IPB University" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Art Partner Collab -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="1">
+                    <img 
+                      src="illust_collab_chibi.jpg" 
+                      alt="Original Character - Art Partner Collab" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Birthday Tribute Character -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="2">
+                    <img 
+                      src="illust_hbd_aisu.jpg" 
+                      alt="Birthday Tribute Character - HBD Aisu" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4: Original Character Student -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="3">
+                    <img 
+                      src="illust_oc_student.jpg" 
+                      alt="Original Character - High School Concept" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 5: Original Character Gwen Sheet -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="4">
+                    <img 
+                      src="illust_gwen_sheet.jpg" 
+                      alt="Original Character - Gwen Design Sheet" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 6: Original Character Gwen Color -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="5">
+                    <img 
+                      src="illust_gwen_color.jpg" 
+                      alt="Original Character - Gwen Colored Portrait" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 7: Original Character Spider-Man Rooftop -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="6">
+                    <img 
+                      src="illust_spiderman_oc.jpg" 
+                      alt="Original Character - Rooftop Scene" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 8: Dori & Rigel -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="7">
+                    <img 
+                      src="illust_dori_rigel.jpg" 
+                      alt="Original Character - Dori & Rigel" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 9: Rainy Encounter -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="8">
+                    <img 
+                      src="illust_rain.jpg" 
+                      alt="Sherlock Holmes and Moriarty Redraw" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 10: Serene Grass Field -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="9">
+                    <img 
+                      src="illust_grass.jpg" 
+                      alt="Original Character - Roblox Avatar Concept" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 11: Wanderer and Mona Genshin Redraw -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="10">
+                    <img 
+                      src="illust_night.jpg" 
+                      alt="Wanderer and Mona Genshin Redraw" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 12: Officer & Inmate Lineup -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="11">
+                    <img 
+                      src="illust_police_prisoner.jpg" 
+                      alt="Original Character - Officer & Inmate" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Carousel Controls: Prev / Next Buttons -->
+                <button id="carousel-prev-3" type="button" class="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Previous Slide">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button id="carousel-next-3" type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Next Slide">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Indicators / Page Pill -->
+                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-ink/80 backdrop-blur-xs text-white border border-white/30 px-2 py-0.5 rounded-full font-pixel text-[8px] flex items-center gap-1 z-10 pointer-events-none max-w-[90%] overflow-hidden">
+                  <span id="carousel-dot-3-0" class="w-1.5 h-1.5 rounded-full bg-yellow transition-all"></span>
+                  <span id="carousel-dot-3-1" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-2" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-3" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-4" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-5" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-6" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-7" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-8" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-9" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-10" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-dot-3-11" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-counter-3" class="ml-1 text-yellow">1/12</span>
+                </div>
+
+              </div>
+
+              <!-- Stable Fixed Title Height Container -->
+              <div class="h-11 flex items-center mb-2 overflow-hidden">
+                <h3 id="project-title-3" class="font-sans text-base font-bold line-clamp-2 leading-tight">National Data Science Festival - IPB University</h3>
+              </div>
+
+              <!-- Stable Fixed Description Height Container -->
+              <div class="h-12 mb-3 overflow-hidden">
+                <p id="project-desc-3" class="text-xs text-ink/70 leading-snug line-clamp-2">
+                  Two dynamic running mascot characters designed for the National Data Science Festival event at IPB University.
+                </p>
+              </div>
+
+              <!-- Stable Fixed Tags Height Container -->
+              <div class="h-6 mb-3 flex flex-wrap gap-1 items-center overflow-hidden">
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Illustration</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Character Design</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Anime Art</span>
+              </div>
+            </div>
+
+            <!-- Bottom Action Button -->
+            <button id="btn-zoom-open-3" type="button" class="btn w-full bg-ink text-paper py-2 font-sans text-xs font-bold uppercase flex items-center justify-center gap-2 hover:bg-gray-800 text-center cursor-pointer">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-yellow"></i>
+              <span>Zoom & View Art</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Social Media Manager & Content Creator -->
+        <div class="work-card-item reveal">
+          <div class="paper-card p-4 relative rotate-1 lift flex flex-col justify-between w-full h-full">
+            <div class="tape tape-yellow w-24 -top-3 left-1/2 -translate-x-1/2"></div>
+            <div class="pin pin-blue -top-1 right-4"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3 pb-2 border-b-2 border-dashed border-ink/20">
+                <span class="font-pixel text-xs text-red">#04</span>
+                <span class="px-2 py-0.5 bg-yellow border border-ink font-sans text-[10px] font-bold uppercase">Content & Social</span>
+              </div>
+
+              <!-- Fixed Height Auto-sliding Poster Carousel Container (Project 4) -->
+              <div id="project-carousel-4" class="relative w-full h-64 sm:h-72 bg-slate-900 border-2 border-ink mb-3 rounded-xs overflow-hidden shadow-inner group">
+                
+                <!-- Carousel Track (2 Social Media Showcase Slides) -->
+                <div id="carousel-track-4" class="project-carousel-track h-full">
+                  
+                  <!-- Slide 1: goy TikTok Account -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="0">
+                    <img 
+                      src="socmed_goy_tiktok.jpg" 
+                      alt="@matahariyangtertidur - TikTok Creator Channel" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: IPB Roblox Community Account -->
+                  <div class="project-carousel-slide h-full w-full p-2 flex items-center justify-center relative select-none" data-slide-index="1">
+                    <img 
+                      src="socmed_ipb_roblox.jpg" 
+                      alt="@ipbroblox - IPB University Community Page" 
+                      class="max-h-full max-w-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-[1.02]"
+                      decoding="async"
+                    />
+                    <!-- Zoom hint overlay -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                      <span class="bg-yellow/95 border-2 border-ink px-2.5 py-1 rounded font-sans text-[11px] font-bold text-ink shadow-md flex items-center gap-1.5">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                        <span>Click to Zoom</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Carousel Controls: Prev / Next Buttons -->
+                <button id="carousel-prev-4" type="button" class="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Previous Slide">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button id="carousel-next-4" type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/90 hover:bg-yellow border-2 border-ink rounded-full flex items-center justify-center text-ink shadow-sm transition-all z-10 cursor-pointer" title="Next Slide">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Indicators / Page Pill -->
+                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-ink/80 backdrop-blur-xs text-white border border-white/30 px-2 py-0.5 rounded-full font-pixel text-[8px] flex items-center gap-1.5 z-10 pointer-events-none">
+                  <span id="carousel-dot-4-0" class="w-1.5 h-1.5 rounded-full bg-yellow transition-all"></span>
+                  <span id="carousel-dot-4-1" class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></span>
+                  <span id="carousel-counter-4" class="ml-1 text-yellow">1/2</span>
+                </div>
+
+              </div>
+
+              <!-- Stable Fixed Title Height Container -->
+              <div class="h-11 flex items-center mb-2 overflow-hidden">
+                <h3 id="project-title-4" class="font-sans text-base font-bold line-clamp-2 leading-tight">@matahariyangtertidur - TikTok Creator Channel</h3>
+              </div>
+
+              <!-- Stable Fixed Description Height Container -->
+              <div class="h-12 mb-3 overflow-hidden">
+                <p id="project-desc-4" class="text-xs text-ink/70 leading-snug line-clamp-2">
+                  Personal lifestyle & comedy content creator channel accumulating 4K+ followers, 36.7K+ likes, and high-engagement viral video posts.
+                </p>
+              </div>
+
+              <!-- Stable Fixed Tags Height Container -->
+              <div class="h-6 mb-3 flex flex-wrap gap-1 items-center overflow-hidden">
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Content Creator</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">Social Media</span>
+                <span class="px-2 py-0.5 bg-white border border-ink text-[10px] font-bold">TikTok Strategy</span>
+              </div>
+            </div>
+
+            <!-- Bottom Action Button -->
+            <button id="btn-zoom-open-4" type="button" class="btn w-full bg-ink text-paper py-2 font-sans text-xs font-bold uppercase flex items-center justify-center gap-2 hover:bg-gray-800 text-center cursor-pointer">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-yellow"></i>
+              <span>Zoom & View Showcase</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS & CREATIVE TOOLBOX
+       ============================================================ -->
+  <section id="skills" class="py-20 px-4 bg-cork relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl relative z-10">
+      
+      <!-- Section Title Header -->
+      <div class="text-center mb-14 reveal">
+        <div class="inline-block paper-card torn px-8 py-4 relative rotate-1">
+          <div class="tape tape-green w-28 -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg]"></div>
+          <div class="pin pin-red -top-2 right-3"></div>
+          <h2 class="font-pixel text-2xl sm:text-3xl text-ink uppercase tracking-wider">
+            Skills & Creative Toolbox
+          </h2>
+        </div>
+      </div>
+
+      <!-- Main 5 Core Creative Skill Cards Grid with Distinct Paper Colors -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+        
+        <!-- Card 1: Graphic & Poster Design (Pastel Yellow Note) -->
+        <div class="paper-card p-6 rotate-[-1deg] lift relative border-2 border-ink shadow-[5px_5px_0_rgba(0,0,0,0.12)] flex flex-col justify-between h-full bg-[#FEFCE8]">
+          <div class="tape tape-yellow w-24 -top-2.5 left-6 rotate-[-2deg]"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-dashed border-ink/15">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-yellow border-2 border-ink rounded-xs flex items-center justify-center text-ink shrink-0 shadow-xs">
+                  <i data-lucide="layout" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-sans text-base font-bold uppercase leading-tight">Graphic Design</h3>
+                  <span class="font-pixel text-[8px] text-ink/60 block">POSTERS & LAYOUTS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2.5 py-0.5 bg-yellow/40 border border-ink text-[10px] font-bold">Canva Pro</span>
+              <span class="px-2.5 py-0.5 bg-yellow/40 border border-ink text-[10px] font-bold">Figma</span>
+            </div>
+
+            <ul class="space-y-2 font-sans text-xs text-ink/80">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-yellow border border-ink shrink-0"></span>
+                <span>Event & Competition Posters</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-yellow border border-ink shrink-0"></span>
+                <span>Educational Infographics</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-yellow border border-ink shrink-0"></span>
+                <span>Visual Hierarchy & Typography</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2: Character Art & Illustration (Pastel Pink Note) -->
+        <div class="paper-card p-6 rotate-1 lift relative border-2 border-ink shadow-[5px_5px_0_rgba(0,0,0,0.12)] flex flex-col justify-between h-full bg-[#FDF2F8]">
+          <div class="tape tape-pink w-24 -top-2.5 right-6 rotate-2"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-dashed border-ink/15">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-pink border-2 border-ink rounded-xs flex items-center justify-center text-ink shrink-0 shadow-xs">
+                  <i data-lucide="palette" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-sans text-base font-bold uppercase leading-tight">Digital Art</h3>
+                  <span class="font-pixel text-[8px] text-ink/60 block">CHARACTER DRAWING</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2.5 py-0.5 bg-pink/40 border border-ink text-[10px] font-bold">Ibis Paint X</span>
+              <span class="px-2.5 py-0.5 bg-pink/40 border border-ink text-[10px] font-bold">Procreate</span>
+            </div>
+
+            <ul class="space-y-2 font-sans text-xs text-ink/80">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-pink border border-ink shrink-0"></span>
+                <span>Anime & Chibi Character Art</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-pink border border-ink shrink-0"></span>
+                <span>Original Character (OC) Sheets</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-pink border border-ink shrink-0"></span>
+                <span>Redraws & Collaborative Art</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3: Video Editing & Motion (Pastel Mint Green Note) -->
+        <div class="paper-card p-6 rotate-[-1.5deg] lift relative border-2 border-ink shadow-[5px_5px_0_rgba(0,0,0,0.12)] flex flex-col justify-between h-full bg-[#F0FDF4]">
+          <div class="tape tape-green w-24 -top-2.5 left-6 rotate-[-1deg]"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-dashed border-ink/15">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-green border-2 border-ink rounded-xs flex items-center justify-center text-ink shrink-0 shadow-xs">
+                  <i data-lucide="film" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-sans text-base font-bold uppercase leading-tight">Video Editing</h3>
+                  <span class="font-pixel text-[8px] text-ink/60 block">SHORT-FORM & MOTION</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2.5 py-0.5 bg-green/40 border border-ink text-[10px] font-bold">CapCut</span>
+              <span class="px-2.5 py-0.5 bg-green/40 border border-ink text-[10px] font-bold">Alight Motion</span>
+            </div>
+
+            <ul class="space-y-2 font-sans text-xs text-ink/80">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-green border border-ink shrink-0"></span>
+                <span>Beat-Sync Audio & Transitions</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-green border border-ink shrink-0"></span>
+                <span>Keyframe Motion & Velocity Effects</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-green border border-ink shrink-0"></span>
+                <span>Anime & Pop Culture Video Edits (AMV)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 4: Social Media & Community (Pastel Cyan Note) -->
+        <div class="paper-card p-6 rotate-1.5 lift relative border-2 border-ink shadow-[5px_5px_0_rgba(0,0,0,0.12)] flex flex-col justify-between h-full bg-[#ECFEFF] sm:col-span-1 lg:col-span-1">
+          <div class="pin pin-blue -top-2 right-6"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-dashed border-ink/15">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-cyan border-2 border-ink rounded-xs flex items-center justify-center text-ink shrink-0 shadow-xs">
+                  <i data-lucide="video" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-sans text-base font-bold uppercase leading-tight">Social Media</h3>
+                  <span class="font-pixel text-[8px] text-ink/60 block">CREATOR & COMMUNITY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2.5 py-0.5 bg-cyan/40 border border-ink text-[10px] font-bold">TikTok Studio</span>
+              <span class="px-2.5 py-0.5 bg-cyan/40 border border-ink text-[10px] font-bold">Community Pages</span>
+            </div>
+
+            <ul class="space-y-2 font-sans text-xs text-ink/80">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-cyan border border-ink shrink-0"></span>
+                <span>Creator Account Content Strategy</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-cyan border border-ink shrink-0"></span>
+                <span>Campus & Gaming Community Growth</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-cyan border border-ink shrink-0"></span>
+                <span>Viral Trend Curation & Memes</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 5: Frontend & Web Basics (Pastel Warm Amber Note) -->
+        <div class="paper-card p-6 rotate-[-1deg] lift relative border-2 border-ink shadow-[5px_5px_0_rgba(0,0,0,0.12)] flex flex-col justify-between h-full bg-[#FFFBEB] sm:col-span-2 lg:col-span-2">
+          <div class="pin pin-red -top-2 left-6"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b-2 border-dashed border-ink/15">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-amber-400 border-2 border-ink rounded-xs flex items-center justify-center text-ink shrink-0 shadow-xs">
+                  <i data-lucide="code" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-sans text-base font-bold uppercase leading-tight">Frontend Web Crafting</h3>
+                  <span class="font-pixel text-[8px] text-ink/60 block">CODE & INTERACTIVITY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2.5 py-0.5 bg-amber-400/40 border border-ink text-[10px] font-bold">HTML5</span>
+              <span class="px-2.5 py-0.5 bg-amber-400/40 border border-ink text-[10px] font-bold">Tailwind CSS</span>
+              <span class="px-2.5 py-0.5 bg-amber-400/40 border border-ink text-[10px] font-bold">JavaScript</span>
+              <span class="px-2.5 py-0.5 bg-amber-400/40 border border-ink text-[10px] font-bold">VS Code</span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-2 font-sans text-xs text-ink/80">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-amber-400 border border-ink shrink-0"></span>
+                <span>Responsive Semantic UI Layouts</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-amber-400 border border-ink shrink-0"></span>
+                <span>Tailwind CSS Aesthetic Styling</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-amber-400 border border-ink shrink-0"></span>
+                <span>DOM Events & Carousel Physics</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-amber-400 border border-ink shrink-0"></span>
+                <span>Tactile Retro Scrapbook Interfaces</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section id="contact" class="py-20 px-4 bg-mat">
+    <div class="container mx-auto max-w-3xl">
+      
+      <!-- Section title -->
+      <div class="text-center mb-12 reveal">
+        <div class="inline-block paper-card torn px-8 py-4 relative rotate-[-1deg]">
+          <div class="tape tape-yellow w-28 -top-3 left-1/2 -translate-x-1/2 rotate-2"></div>
+          <h2 class="font-pixel text-2xl sm:text-3xl text-ink uppercase">
+            Contact
+          </h2>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="reveal">
+        <div class="paper-card torn p-8 relative">
+          
+          <div class="text-center mb-8">
+            <p class="font-sans text-sm font-bold text-desk uppercase mb-2">Let's Work Together</p>
+            <p class="text-sm text-ink/70">Have a project in mind? Let's chat!</p>
+          </div>
+
+          <form id="contact-form" class="space-y-4 mb-8" action="https://formsubmit.co/rushpalgoy@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Message from Portfolio Website!" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <div>
+              <label for="contact-name" class="block font-sans text-xs font-bold text-ink mb-2 uppercase">Name</label>
+              <input id="contact-name" name="name" type="text" required class="w-full bg-white border-2 border-ink px-4 py-3 focus:outline-none focus:border-desk transition-colors" placeholder="Your Name">
+            </div>
+            
+            <div>
+              <label for="contact-email" class="block font-sans text-xs font-bold text-ink mb-2 uppercase">Email</label>
+              <input id="contact-email" name="email" type="email" required class="w-full bg-white border-2 border-ink px-4 py-3 focus:outline-none focus:border-desk transition-colors" placeholder="your@email.com">
+            </div>
+            
+            <div>
+              <label for="contact-message" class="block font-sans text-xs font-bold text-ink mb-2 uppercase">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required class="w-full bg-white border-2 border-ink px-4 py-3 focus:outline-none focus:border-desk transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+            </div>
+            
+            <button id="contact-submit-btn" type="submit" class="btn w-full bg-red text-white py-3 font-sans text-sm font-bold uppercase flex items-center justify-center gap-2 hover:bg-white hover:text-ink transition-all cursor-pointer">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span id="contact-btn-text">Send Message</span>
+            </button>
+
+            <!-- Status message container -->
+            <div id="contact-status" class="hidden mt-3 p-3 border-2 border-ink text-center font-sans text-xs font-bold"></div>
+          </form>
+
+          <!-- Contact & Social Links (Direct Clickable Channels) -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-6 border-t-2 border-dashed border-ink/20">
+            
+            <!-- Email -->
+            <a href="mailto:rushpalgoy@gmail.com" class="p-3 bg-white/90 hover:bg-yellow border-2 border-ink rounded-xs flex flex-col items-center justify-center text-center transition-all hover:-translate-y-1 shadow-xs group cursor-pointer">
+              <div class="w-10 h-10 bg-yellow border-2 border-ink rounded-xs mb-2 flex items-center justify-center text-ink group-hover:scale-110 transition-transform shadow-xs">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <p class="font-sans text-[11px] font-bold uppercase text-ink">Email</p>
+              <p class="text-[10px] text-ink/70 group-hover:text-ink truncate max-w-full font-medium">rushpalgoy</p>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/mjqhibiniu" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/90 hover:bg-pink border-2 border-ink rounded-xs flex flex-col items-center justify-center text-center transition-all hover:-translate-y-1 shadow-xs group cursor-pointer">
+              <div class="w-10 h-10 bg-pink border-2 border-ink rounded-xs mb-2 flex items-center justify-center text-ink group-hover:scale-110 transition-transform shadow-xs">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="font-sans text-[11px] font-bold uppercase text-ink">Instagram</p>
+              <p class="text-[10px] text-ink/70 group-hover:text-ink truncate max-w-full font-medium">@mjqhibiniu</p>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@matahariyangtertidur" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/90 hover:bg-cyan border-2 border-ink rounded-xs flex flex-col items-center justify-center text-center transition-all hover:-translate-y-1 shadow-xs group cursor-pointer">
+              <div class="w-10 h-10 bg-cyan border-2 border-ink rounded-xs mb-2 flex items-center justify-center text-ink group-hover:scale-110 transition-transform shadow-xs">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.33 22a6.34 6.34 0 0 0 6.34-6.34V9.05a8.16 8.16 0 0 0 4.92 1.64V7.24a4.84 4.84 0 0 1-1-.55z"/>
+                </svg>
+              </div>
+              <p class="font-sans text-[11px] font-bold uppercase text-ink">TikTok</p>
+              <p class="text-[10px] text-ink/70 group-hover:text-ink truncate max-w-full font-medium">@matahari...</p>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/xgoy" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/90 hover:bg-green border-2 border-ink rounded-xs flex flex-col items-center justify-center text-center transition-all hover:-translate-y-1 shadow-xs group cursor-pointer">
+              <div class="w-10 h-10 bg-green border-2 border-ink rounded-xs mb-2 flex items-center justify-center text-ink group-hover:scale-110 transition-transform shadow-xs">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <p class="font-sans text-[11px] font-bold uppercase text-ink">GitHub</p>
+              <p class="text-[10px] text-ink/70 group-hover:text-ink truncate max-w-full font-medium">xgoy</p>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/muhammad-dzakiy-nurrus-akbar-033534375/" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/90 hover:bg-blue-300 border-2 border-ink rounded-xs flex flex-col items-center justify-center text-center transition-all hover:-translate-y-1 shadow-xs group cursor-pointer col-span-2 sm:col-span-1">
+              <div class="w-10 h-10 bg-blue-300 border-2 border-ink rounded-xs mb-2 flex items-center justify-center text-ink group-hover:scale-110 transition-transform shadow-xs">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.45 1.45 0 0 0-1.45 1.45 1.45 1.45 0 0 0 1.45 1.45 1.45 1.45 0 0 0 1.45-1.45 1.45 1.45 0 0 0-1.45-1.45z"/>
+                </svg>
+              </div>
+              <p class="font-sans text-[11px] font-bold uppercase text-ink">LinkedIn</p>
+              <p class="text-[10px] text-ink/70 group-hover:text-ink truncate max-w-full font-medium">Dzakiy</p>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ZOOM LIGHTBOX MODAL (With Red "X" Close Button)
+       ============================================================ -->
+  <div id="poster-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Poster Zoom View">
+    
+    <!-- Big Red "X" Close Button in Top Right Corner -->
+    <button id="modal-close-btn" type="button" class="fixed top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 bg-red-600 hover:bg-red-700 active:scale-95 text-white border-2 border-white rounded-full shadow-2xl flex items-center justify-center z-50 transition-all cursor-pointer" title="Close (Esc)">
+      <i data-lucide="x" class="w-7 h-7 stroke-[3]"></i>
+    </button>
+
+    <!-- Modal Card / Image Container -->
+    <div class="modal-content-box relative max-w-5xl max-h-[92vh] w-full flex flex-col items-center justify-center p-2 z-40" onclick="event.stopPropagation()">
+      
+      <!-- Nav Left in Modal -->
+      <button id="modal-prev-btn" type="button" class="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 bg-yellow hover:bg-white text-ink border-2 border-ink rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 cursor-pointer z-50" title="Previous Image">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Nav Right in Modal -->
+      <button id="modal-next-btn" type="button" class="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 bg-yellow hover:bg-white text-ink border-2 border-ink rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 cursor-pointer z-50" title="Next Image">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Zoomed Image Container -->
+      <div class="bg-black/90 border-2 border-white/40 rounded-lg p-2 sm:p-3 shadow-2xl flex items-center justify-center max-h-[80vh] overflow-hidden">
+        <img 
+          id="modal-img" 
+          src="poster_radioaktif.png" 
+          alt="Zoomed Poster View" 
+          class="max-h-[74vh] max-w-[88vw] object-contain rounded transition-all duration-300"
+        />
+      </div>
+
+      <!-- Caption & Counter -->
+      <div class="mt-3 text-center">
+        <p id="modal-caption" class="text-white font-sans text-sm sm:text-base font-bold drop-shadow">
+          Radioactivity in Everyday Life
+        </p>
+        <p id="modal-counter" class="text-yellow font-pixel text-xs mt-1">
+          POSTER 1 / 4
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="py-8 px-4 bg-blue-900 border-t-2 border-blue-800">
+    <div class="container mx-auto text-center">
+      <div class="flex justify-center items-center gap-3 mb-4">
+        <a href="mailto:rushpalgoy@gmail.com" class="w-8 h-8 bg-yellow border border-ink text-ink rounded-xs flex items-center justify-center hover:scale-110 transition-transform" title="Email">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+        <a href="https://instagram.com/mjqhibiniu" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-pink border border-ink text-ink rounded-xs flex items-center justify-center hover:scale-110 transition-transform" title="Instagram">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@matahariyangtertidur" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-cyan border border-ink text-ink rounded-xs flex items-center justify-center hover:scale-110 transition-transform" title="TikTok">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.33 22a6.34 6.34 0 0 0 6.34-6.34V9.05a8.16 8.16 0 0 0 4.92 1.64V7.24a4.84 4.84 0 0 1-1-.55z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/xgoy" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-green border border-ink text-ink rounded-xs flex items-center justify-center hover:scale-110 transition-transform" title="GitHub">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-dzakiy-nurrus-akbar-033534375/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-blue-300 border border-ink text-ink rounded-xs flex items-center justify-center hover:scale-110 transition-transform" title="LinkedIn">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.45 1.45 0 0 0-1.45 1.45 1.45 1.45 0 0 0 1.45 1.45 1.45 1.45 0 0 0 1.45-1.45 1.45 1.45 0 0 0-1.45-1.45z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="font-sans text-xs text-white/80">
+        &copy; 2026 Muhammad Dzakiy Nurrus Akbar
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+    });
+
+    menuClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const header = document.querySelector('header');
+          const headerHeight = header ? header.offsetHeight : 64;
+          const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({
+            top: targetPos,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ============================================================
+    // Physics-Driven Polaroid Drag, Pull, Swing & Spring Bounce
+    // (Anchored to the Blue Washi Tape at Top)
+    // ============================================================
+    const polaroidCard = document.getElementById('polaroid-card');
+    const polaroidPin = document.getElementById('polaroid-pin');
+    const polaroidWrapper = document.getElementById('polaroid-wrapper');
+
+    if (polaroidCard) {
+      const REST_ANGLE = -2; // Resting angle in degrees (-2deg)
+      let currentAngle = REST_ANGLE;
+      let angleVelocity = 0;
+
+      let currentStretch = 1.0;
+      let stretchVelocity = 0;
+
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let lastAngle = REST_ANGLE;
+      let physicsFrameId = null;
+
+      // Spring physics constants
+      const SPRING_K = 0.085; // Spring force pulling back to resting angle
+      const DAMPING = 0.86;   // Air resistance / friction (controls bounce count)
+
+      function updateCardTransform(ang, str, lift) {
+        const shadowX = (ang * 0.4 + 6).toFixed(1);
+        const shadowY = (Math.abs(ang - REST_ANGLE) * 0.4 + (str - 1) * 20 + 6).toFixed(1);
+        const shadowBlur = (Math.abs(ang - REST_ANGLE) * 0.5 + lift * 0.6 + 6).toFixed(1);
+        
+        polaroidCard.style.transform = `rotate(${ang.toFixed(2)}deg) scaleY(${str.toFixed(3)}) perspective(900px) translateZ(${lift.toFixed(1)}px)`;
+        polaroidCard.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0,0,0,0.3)`;
+      }
+
+      function startSpringLoop() {
+        if (physicsFrameId) cancelAnimationFrame(physicsFrameId);
+
+        function springTick() {
+          if (isDragging) return;
+
+          // Angular spring equation: F = -k * (angle - rest)
+          const springForce = -SPRING_K * (currentAngle - REST_ANGLE);
+          angleVelocity = (angleVelocity + springForce) * DAMPING;
+          currentAngle += angleVelocity;
+
+          // Stretch spring equation
+          const stretchForce = -0.12 * (currentStretch - 1.0);
+          stretchVelocity = (stretchVelocity + stretchForce) * 0.82;
+          currentStretch += stretchVelocity;
+
+          const lift = Math.abs(currentAngle - REST_ANGLE) * 0.3;
+          updateCardTransform(currentAngle, currentStretch, lift);
+
+          // Stop loop when settled
+          if (
+            Math.abs(currentAngle - REST_ANGLE) < 0.04 &&
+            Math.abs(angleVelocity) < 0.04 &&
+            Math.abs(currentStretch - 1.0) < 0.005
+          ) {
+            currentAngle = REST_ANGLE;
+            currentStretch = 1.0;
+            updateCardTransform(REST_ANGLE, 1.0, 0);
+            physicsFrameId = null;
+            return;
+          }
+
+          physicsFrameId = requestAnimationFrame(springTick);
+        }
+
+        physicsFrameId = requestAnimationFrame(springTick);
+      }
+
+      // Pointer Down (Drag Start)
+      function onPointerDown(e) {
+        if (e.target === polaroidPin) return; // Pin has its own click impulse
+        isDragging = true;
+        polaroidCard.classList.add('is-dragging');
+        if (physicsFrameId) cancelAnimationFrame(physicsFrameId);
+
+        const rect = polaroidCard.getBoundingClientRect();
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        lastAngle = currentAngle;
+
+        if (e.pointerId && polaroidCard.setPointerCapture) {
+          try { polaroidCard.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+      }
+
+      // Pointer Move (Drag / Pull - ONLY runs when actively dragging)
+      function onPointerMove(e) {
+        if (!isDragging) return;
+
+        const rect = polaroidCard.getBoundingClientRect();
+        const anchorX = rect.left + rect.width / 2;
+        const anchorY = rect.top + 4; // Tape top anchor
+
+        const dx = e.clientX - anchorX;
+        const dy = Math.max(10, e.clientY - anchorY);
+
+        // Calculate pull angle from tape anchor point
+        const rad = Math.atan2(dx, dy);
+        const deg = (rad * 180) / Math.PI;
+        
+        // Elastic resistance on large angles
+        let targetAngle = deg;
+        if (targetAngle > 45) targetAngle = 45 + (targetAngle - 45) * 0.3;
+        if (targetAngle < -45) targetAngle = -45 + (targetAngle + 45) * 0.3;
+
+        // Calculate stretch / elastic pull length
+        const currentDist = Math.sqrt(dx * dx + dy * dy);
+        const baseLength = rect.height * 0.6;
+        const targetStretch = Math.max(0.92, Math.min(1.28, 1 + (currentDist - baseLength) / 450));
+
+        angleVelocity = targetAngle - currentAngle;
+        currentAngle = targetAngle;
+        currentStretch = targetStretch;
+
+        const lift = Math.min(22, Math.abs(dx) * 0.12 + Math.max(0, dy - 50) * 0.08);
+        updateCardTransform(currentAngle, currentStretch, lift);
+      }
+
+      // Pointer Up (Release & Bounce)
+      function onPointerUp(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        polaroidCard.classList.remove('is-dragging');
+
+        if (e.pointerId && polaroidCard.releasePointerCapture) {
+          try { polaroidCard.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+
+        // Start realistic pendulum spring oscillation with drag momentum
+        angleVelocity = Math.max(-18, Math.min(18, angleVelocity * 0.75));
+        startSpringLoop();
+      }
+
+      // Local mousemove hover strictly when cursor is inside the card
+      polaroidCard.addEventListener('mousemove', (e) => {
+        if (isDragging || physicsFrameId) return;
+        const rect = polaroidCard.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const tiltX = (y / rect.height) * -6;
+        const tiltY = (x / rect.width) * 6;
+        polaroidCard.style.transform = `rotate(${REST_ANGLE}deg) perspective(800px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+      });
+
+      polaroidCard.addEventListener('mouseleave', () => {
+        if (!isDragging && !physicsFrameId) {
+          polaroidCard.style.transform = `rotate(${REST_ANGLE}deg)`;
+          polaroidCard.style.boxShadow = '6px 6px 0 rgba(0,0,0,0.3)';
+        }
+      });
+
+      polaroidCard.addEventListener('pointerdown', onPointerDown);
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', onPointerUp);
+      window.addEventListener('pointercancel', onPointerUp);
+
+      // Pin Click Impulse (Kick to swing)
+      if (polaroidPin) {
+        polaroidPin.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isDragging = false;
+          angleVelocity = (angleVelocity > 0 ? -12 : 14);
+          currentStretch = 1.08;
+          startSpringLoop();
+        });
+      }
+    }
+
+    // ============================================================
+    // Work Section: Horizontal Scrapbook Gallery Track Controller
+    // ============================================================
+    const workTrack = document.getElementById('work-horizontal-track');
+    const workNavPrev = document.getElementById('work-nav-prev');
+    const workNavNext = document.getElementById('work-nav-next');
+
+    if (workTrack) {
+      const getScrollDistance = () => {
+        const firstCard = workTrack.querySelector('.work-card-item');
+        return firstCard ? firstCard.offsetWidth + 28 : 400;
+      };
+
+      if (workNavPrev) {
+        workNavPrev.addEventListener('click', () => {
+          workTrack.scrollBy({ left: -getScrollDistance(), behavior: 'smooth' });
+        });
+      }
+
+      if (workNavNext) {
+        workNavNext.addEventListener('click', () => {
+          workTrack.scrollBy({ left: getScrollDistance(), behavior: 'smooth' });
+        });
+      }
+
+      // Drag to scroll horizontally on desktop
+      let isTrackDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let hasDragged = false;
+
+      workTrack.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button') || e.target.closest('.project-carousel-slide') || e.target.closest('a')) {
+          return;
+        }
+        isTrackDown = true;
+        hasDragged = false;
+        workTrack.classList.add('is-dragging-track');
+        startX = e.pageX - workTrack.offsetLeft;
+        scrollLeft = workTrack.scrollLeft;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isTrackDown) return;
+        const x = e.pageX - workTrack.offsetLeft;
+        const walk = (x - startX) * 1.4;
+        if (Math.abs(walk) > 5) hasDragged = true;
+        workTrack.scrollLeft = scrollLeft - walk;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isTrackDown) {
+          isTrackDown = false;
+          workTrack.classList.remove('is-dragging-track');
+        }
+      });
+    }
+
+    // ============================================================
+    // Projects 1, 2 & 3: Data, Auto-Carousels & Lightbox Zoom Manager
+    // ============================================================
+    const project1Slides = [
+      {
+        src: 'poster_radioaktif.png',
+        alt: 'Radioactivity in Everyday Life',
+        title: 'Radioactivity in Everyday Life',
+        desc: 'Educational infographic poster designed on Canva discussing the practical applications and safety principles of radioactivity.'
+      },
+      {
+        src: 'poster_politik.png',
+        alt: 'Clean Politics - Voting Rights Education',
+        title: 'Clean Politics - Voting Rights Education',
+        desc: 'Campaign poster design on Canva educating high school students about clean politics, integrity, and voting rights.'
+      },
+      {
+        src: 'poster_donasi.png',
+        alt: 'Charity Drive - Education for All',
+        title: 'Charity Drive - Education for All',
+        desc: 'Charity fundraising poster design on Canva supporting digital education awareness for teenage students.'
+      },
+      {
+        src: 'banner_chronicle.png',
+        alt: 'Ignite Element - Flashback Chronicle & Identity Banner',
+        title: 'Ignite Element - Flashback Chronicle & Identity Banner',
+        desc: 'Retro pixel infographic chronicle banner crafted for creative identity and journey showcase.'
+      }
+    ];
+
+    const project2Slides = [
+      {
+        src: 'ittoday_competition.jpg',
+        alt: 'IT Today 2026 - Competition Registration & Fees',
+        title: 'IT Today 2026 - Competition Registration & Fees',
+        desc: 'Scrapbook & paper-tear visual campaign poster for IT Today 2026 competitions with total prize pool of 50 Million IDR.'
+      },
+      {
+        src: 'ittoday_event.png',
+        alt: 'IT Today 2026 - Open Registration Event Timeline',
+        title: 'IT Today 2026 - Open Registration Event Timeline',
+        desc: 'Event timeline and registration infographic for Bootcamp, Workshop, and National Seminar crafted on Figma.'
+      },
+      {
+        src: 'ittoday_close_reg.png',
+        alt: 'IT Today 2026 - Registration Closing Announcement',
+        title: 'IT Today 2026 - Registration Closing Announcement',
+        desc: 'Cosmic blue space-themed announcement visual for IT Today 2026 registration closing.'
+      },
+      {
+        src: 'ittoday_closed_all.png',
+        alt: 'IT Today 2026 - Final Competition Closing',
+        title: 'IT Today 2026 - Final Competition Closing',
+        desc: 'Final closing announcement poster for all competition branches of IT Today 2026 IPB University.'
+      }
+    ];
+
+    const project3Slides = [
+      {
+        src: 'illust_fsdn_ipb.jpg',
+        alt: 'National Data Science Festival - IPB University',
+        title: 'National Data Science Festival - IPB University',
+        desc: 'Two dynamic running mascot characters designed for the National Data Science Festival event at IPB University.'
+      },
+      {
+        src: 'illust_collab_chibi.jpg',
+        alt: 'Original Character - Art Partner Collab',
+        title: 'Original Character - Art Partner Collab',
+        desc: 'Playful original chibi character illustration created as a creative drawing collaboration with an art partner.'
+      },
+      {
+        src: 'illust_hbd_aisu.jpg',
+        alt: 'Birthday Tribute Character - HBD Aisu',
+        title: 'Birthday Tribute Character - HBD Aisu',
+        desc: 'Special birthday celebration character artwork created for drawing partner holding a birthday cake.'
+      },
+      {
+        src: 'illust_oc_student.jpg',
+        alt: 'Original Character - High School Concept',
+        title: 'Original Character',
+        desc: 'Original anime character full-body concept featuring casual high school uniform styling and patterned tie.'
+      },
+      {
+        src: 'illust_gwen_sheet.jpg',
+        alt: 'Original Character - Gwen Design Sheet',
+        title: 'Original Character',
+        desc: 'Original character model sheet detailing facial expressions, floral hairpin, and full outfit design for Gwen.'
+      },
+      {
+        src: 'illust_gwen_color.jpg',
+        alt: 'Original Character - Gwen Colored Portrait',
+        title: 'Original Character',
+        desc: 'Vibrant colored portrait illustration of original character Gwen smiling warmly with a pink flower hairpin.'
+      },
+      {
+        src: 'illust_spiderman_oc.jpg',
+        alt: 'Original Character - Rooftop Scene',
+        title: 'Original Character',
+        desc: 'Original character artwork featuring a blonde anime boy wearing a Spider-Man t-shirt on a city rooftop.'
+      },
+      {
+        src: 'illust_dori_rigel.jpg',
+        alt: 'Original Character - Dori & Rigel',
+        title: 'Original Character',
+        desc: 'Collaborative original character concept art featuring Dori and Rigel designed with custom anime aesthetics.'
+      },
+      {
+        src: 'illust_rain.jpg',
+        alt: 'Sherlock Holmes and Moriarty Redraw',
+        title: 'Sherlock Holmes and Moriarty Redraw',
+        desc: 'Stylized anime redraw composition portraying Sherlock Holmes and William James Moriarty in the rain.'
+      },
+      {
+        src: 'illust_grass.jpg',
+        alt: 'Original Character - Roblox Avatar Concept',
+        title: 'Original Character Inspired by Roblox Avatar',
+        desc: 'Original character duo illustration inspired by custom Roblox avatars enjoying a peaceful day on the grass.'
+      },
+      {
+        src: 'illust_night.jpg',
+        alt: 'Wanderer and Mona Genshin Redraw',
+        title: 'Wanderer and Mona Genshin Redraw',
+        desc: 'Stylized Genshin Impact anime redraw artwork capturing Wanderer and Mona under the moonlit night sky.'
+      },
+      {
+        src: 'illust_police_prisoner.jpg',
+        alt: 'Original Character - Officer & Inmate',
+        title: 'Original Character',
+        desc: 'Dynamic narrative character artwork featuring a prison inmate and police officer dynamic.'
+      }
+    ];
+
+    const project4Slides = [
+      {
+        src: 'socmed_goy_tiktok.jpg',
+        alt: '@matahariyangtertidur - TikTok Creator Channel',
+        title: '@matahariyangtertidur - TikTok Creator Channel',
+        desc: 'Personal lifestyle & comedy content creator channel accumulating 4K+ followers, 36.7K+ likes, and high-engagement viral video posts.'
+      },
+      {
+        src: 'socmed_ipb_roblox.jpg',
+        alt: '@ipbroblox - IPB University Community Page',
+        title: '@ipbroblox - IPB University Community Page',
+        desc: 'Student gaming and community entertainment channel generating 12.2K+ likes and active campus youth participation.'
+      }
+    ];
+
+    // Modal elements
+    const posterModal = document.getElementById('poster-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const modalCounter = document.getElementById('modal-counter');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalPrevBtn = document.getElementById('modal-prev-btn');
+    const modalNextBtn = document.getElementById('modal-next-btn');
+
+    let activeModalProject = 'project1'; // 'project1', 'project2', 'project3', or 'project4'
+
+    function isModalOpen() {
+      return posterModal && posterModal.classList.contains('is-open');
+    }
+
+    // Factory to create carousel controllers
+    function createCarouselController(config) {
+      const {
+        id,
+        slides,
+        trackEl,
+        prevBtn,
+        nextBtn,
+        containerEl,
+        titleEl,
+        descEl,
+        counterEl,
+        zoomBtn,
+        dots
+      } = config;
+
+      let currentIdx = 0;
+      let timer = null;
+
+      function goToSlide(index, fromModal = false) {
+        currentIdx = (index + slides.length) % slides.length;
+        if (trackEl) {
+          trackEl.style.transform = `translate3d(-${currentIdx * 100}%, 0, 0)`;
+        }
+
+        const slide = slides[currentIdx];
+        if (titleEl && descEl) {
+          titleEl.style.opacity = '0';
+          descEl.style.opacity = '0';
+          setTimeout(() => {
+            titleEl.textContent = slide.title;
+            descEl.textContent = slide.desc;
+            titleEl.style.opacity = '1';
+            descEl.style.opacity = '1';
+          }, 180);
+        }
+
+        if (dots && dots.length) {
+          dots.forEach((dot, i) => {
+            if (!dot) return;
+            if (i === currentIdx) {
+              dot.className = 'w-1.5 h-1.5 rounded-full bg-yellow transition-all duration-300 scale-125';
+            } else {
+              dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300 scale-100';
+            }
+          });
+        }
+
+        if (counterEl) {
+          counterEl.textContent = `${currentIdx + 1}/${slides.length}`;
+        }
+
+        if (isModalOpen() && activeModalProject === id) {
+          updateModalContent(true);
+        }
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        if (isModalOpen()) return;
+        timer = setInterval(() => {
+          if (isModalOpen()) {
+            stopAutoPlay();
+            return;
+          }
+          goToSlide(currentIdx + 1);
+        }, 6000);
+      }
+
+      function stopAutoPlay() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(currentIdx - 1);
+          if (!isModalOpen()) startAutoPlay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(currentIdx + 1);
+          if (!isModalOpen()) startAutoPlay();
+        });
+      }
+
+      if (containerEl) {
+        containerEl.addEventListener('mouseenter', stopAutoPlay);
+        containerEl.addEventListener('mouseleave', () => {
+          if (!isModalOpen()) startAutoPlay();
+        });
+
+        containerEl.addEventListener('click', () => {
+          openZoomModal(id, currentIdx);
+        });
+      }
+
+      if (zoomBtn) {
+        zoomBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openZoomModal(id, currentIdx);
+        });
+      }
+
+      // Initialize auto-play
+      startAutoPlay();
+
+      return {
+        id,
+        slides,
+        getCurrentIdx: () => currentIdx,
+        goToSlide,
+        startAutoPlay,
+        stopAutoPlay
+      };
+    }
+
+    // Initialize Controller for Project 1 (Canva Design)
+    const p1Controller = createCarouselController({
+      id: 'project1',
+      slides: project1Slides,
+      trackEl: document.getElementById('carousel-track-1'),
+      prevBtn: document.getElementById('carousel-prev-1'),
+      nextBtn: document.getElementById('carousel-next-1'),
+      containerEl: document.getElementById('project-carousel-1'),
+      titleEl: document.getElementById('project-title-1'),
+      descEl: document.getElementById('project-desc-1'),
+      counterEl: document.getElementById('carousel-counter-1'),
+      zoomBtn: document.getElementById('btn-zoom-open-1'),
+      dots: [
+        document.getElementById('carousel-dot-0'),
+        document.getElementById('carousel-dot-1'),
+        document.getElementById('carousel-dot-2'),
+        document.getElementById('carousel-dot-3')
+      ]
+    });
+
+    // Initialize Controller for Project 2 (Figma Design)
+    const p2Controller = createCarouselController({
+      id: 'project2',
+      slides: project2Slides,
+      trackEl: document.getElementById('carousel-track-2'),
+      prevBtn: document.getElementById('carousel-prev-2'),
+      nextBtn: document.getElementById('carousel-next-2'),
+      containerEl: document.getElementById('project-carousel-2'),
+      titleEl: document.getElementById('project-title-2'),
+      descEl: document.getElementById('project-desc-2'),
+      counterEl: document.getElementById('carousel-counter-2'),
+      zoomBtn: document.getElementById('btn-zoom-open-2'),
+      dots: [
+        document.getElementById('carousel-dot-2-0'),
+        document.getElementById('carousel-dot-2-1'),
+        document.getElementById('carousel-dot-2-2'),
+        document.getElementById('carousel-dot-2-3')
+      ]
+    });
+
+    // Initialize Controller for Project 3 (Character Illustration)
+    const p3Controller = createCarouselController({
+      id: 'project3',
+      slides: project3Slides,
+      trackEl: document.getElementById('carousel-track-3'),
+      prevBtn: document.getElementById('carousel-prev-3'),
+      nextBtn: document.getElementById('carousel-next-3'),
+      containerEl: document.getElementById('project-carousel-3'),
+      titleEl: document.getElementById('project-title-3'),
+      descEl: document.getElementById('project-desc-3'),
+      counterEl: document.getElementById('carousel-counter-3'),
+      zoomBtn: document.getElementById('btn-zoom-open-3'),
+      dots: [
+        document.getElementById('carousel-dot-3-0'),
+        document.getElementById('carousel-dot-3-1'),
+        document.getElementById('carousel-dot-3-2'),
+        document.getElementById('carousel-dot-3-3'),
+        document.getElementById('carousel-dot-3-4'),
+        document.getElementById('carousel-dot-3-5'),
+        document.getElementById('carousel-dot-3-6'),
+        document.getElementById('carousel-dot-3-7'),
+        document.getElementById('carousel-dot-3-8'),
+        document.getElementById('carousel-dot-3-9'),
+        document.getElementById('carousel-dot-3-10'),
+        document.getElementById('carousel-dot-3-11')
+      ]
+    });
+
+    // Initialize Controller for Project 4 (Social Media & Content)
+    const p4Controller = createCarouselController({
+      id: 'project4',
+      slides: project4Slides,
+      trackEl: document.getElementById('carousel-track-4'),
+      prevBtn: document.getElementById('carousel-prev-4'),
+      nextBtn: document.getElementById('carousel-next-4'),
+      containerEl: document.getElementById('project-carousel-4'),
+      titleEl: document.getElementById('project-title-4'),
+      descEl: document.getElementById('project-desc-4'),
+      counterEl: document.getElementById('carousel-counter-4'),
+      zoomBtn: document.getElementById('btn-zoom-open-4'),
+      dots: [
+        document.getElementById('carousel-dot-4-0'),
+        document.getElementById('carousel-dot-4-1')
+      ]
+    });
+
+    // Lightbox Modal Functions
+    function getActiveController() {
+      if (activeModalProject === 'project4') return p4Controller;
+      if (activeModalProject === 'project3') return p3Controller;
+      if (activeModalProject === 'project2') return p2Controller;
+      return p1Controller;
+    }
+
+    function updateModalContent(isSwitching = false) {
+      const ctrl = getActiveController();
+      const slide = ctrl.slides[ctrl.getCurrentIdx()];
+      if (modalImg) {
+        if (isSwitching) {
+          modalImg.style.opacity = '0.3';
+          modalImg.style.transform = 'scale(0.96)';
+          setTimeout(() => {
+            modalImg.src = slide.src;
+            modalImg.alt = slide.alt;
+            if (modalCaption) modalCaption.textContent = slide.title;
+            if (modalCounter) modalCounter.textContent = `ARTWORK ${ctrl.getCurrentIdx() + 1} / ${ctrl.slides.length}`;
+            modalImg.style.opacity = '1';
+            modalImg.style.transform = 'scale(1)';
+          }, 120);
+        } else {
+          modalImg.src = slide.src;
+          modalImg.alt = slide.alt;
+          if (modalCaption) modalCaption.textContent = slide.title;
+          if (modalCounter) modalCounter.textContent = `ARTWORK ${ctrl.getCurrentIdx() + 1} / ${ctrl.slides.length}`;
+          modalImg.style.opacity = '1';
+          modalImg.style.transform = 'scale(1)';
+        }
+      }
+    }
+
+    function openZoomModal(projectId, slideIndex) {
+      p1Controller.stopAutoPlay();
+      p2Controller.stopAutoPlay();
+      p3Controller.stopAutoPlay();
+      p4Controller.stopAutoPlay();
+      activeModalProject = projectId;
+      const ctrl = getActiveController();
+      ctrl.goToSlide(slideIndex, true);
+      updateModalContent(false);
+      if (posterModal) {
+        posterModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      p1Controller.stopAutoPlay();
+      p2Controller.stopAutoPlay();
+      p3Controller.stopAutoPlay();
+      p4Controller.stopAutoPlay();
+    }
+
+    function closeZoomModal() {
+      if (posterModal) {
+        posterModal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      p1Controller.startAutoPlay();
+      p2Controller.startAutoPlay();
+      p3Controller.startAutoPlay();
+      p4Controller.startAutoPlay();
+    }
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeZoomModal();
+      });
+    }
+
+    if (posterModal) {
+      posterModal.addEventListener('click', (e) => {
+        if (e.target === posterModal) {
+          closeZoomModal();
+        }
+      });
+    }
+
+    if (modalPrevBtn) {
+      modalPrevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const ctrl = getActiveController();
+        ctrl.goToSlide(ctrl.getCurrentIdx() - 1, true);
+      });
+    }
+
+    if (modalNextBtn) {
+      modalNextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const ctrl = getActiveController();
+        ctrl.goToSlide(ctrl.getCurrentIdx() + 1, true);
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (isModalOpen()) {
+        if (e.key === 'Escape') closeZoomModal();
+        if (e.key === 'ArrowLeft') {
+          const ctrl = getActiveController();
+          ctrl.goToSlide(ctrl.getCurrentIdx() - 1, true);
+        }
+        if (e.key === 'ArrowRight') {
+          const ctrl = getActiveController();
+          ctrl.goToSlide(ctrl.getCurrentIdx() + 1, true);
+        }
+      }
+    });
+
+    // Contact Form AJAX Email Submission to rushpalgoy@gmail.com
+    const contactForm = document.getElementById('contact-form');
+    const contactSubmitBtn = document.getElementById('contact-submit-btn');
+    const contactBtnText = document.getElementById('contact-btn-text');
+    const contactStatus = document.getElementById('contact-status');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('contact-name');
+        const emailInput = document.getElementById('contact-email');
+        const messageInput = document.getElementById('contact-message');
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        if (!name || !email || !message) return;
+
+        if (contactSubmitBtn) contactSubmitBtn.disabled = true;
+        if (contactBtnText) contactBtnText.textContent = 'Sending...';
+        if (contactStatus) {
+          contactStatus.className = 'hidden';
+          contactStatus.textContent = '';
+        }
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/rushpalgoy@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              message: message,
+              _subject: `New Portfolio Message from ${name}`
+            })
+          });
+
+          const data = await res.json();
+
+          if (res.ok || data.success === 'true' || data.success === true) {
+            if (contactStatus) {
+              contactStatus.className = 'mt-3 p-3 bg-green/40 border-2 border-ink text-ink font-sans text-xs font-bold rounded-xs block';
+              contactStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+            }
+            contactForm.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          if (contactStatus) {
+            contactStatus.className = 'mt-3 p-3 bg-yellow/40 border-2 border-ink text-ink font-sans text-xs font-bold rounded-xs block';
+            contactStatus.innerHTML = `Message delivery queue activated. <a href="mailto:rushpalgoy@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message)}" class="underline font-bold text-blue-900">Click here to send directly via mail client</a>.`;
+          }
+        } finally {
+          if (contactSubmitBtn) contactSubmitBtn.disabled = false;
+          if (contactBtnText) contactBtnText.textContent = 'Send Message';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+
